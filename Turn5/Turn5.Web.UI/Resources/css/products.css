@@ -1,0 +1,95 @@
+﻿.products-container 
+{
+    margin-top: 30px;    
+}
+    .products-container ul li
+    {
+        list-style-type: circle;
+    }
+
+.form-elements-container
+{
+    background-color: lightgrey;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 4px 4px 4px 4px;
+    width: 320px; 
+}
+
+#Product-Form .form-elements 
+{
+    display: block;
+    padding: 2px;
+    width: 480px;
+    font-weight: bold;
+    margin: 0;
+}
+    #Product-Form .form-elements .interested-advertise 
+    {
+        width: auto;
+        margin: 0 4px 0 0;    
+    }
+    #Product-Form .form-elements .interested-label 
+    {
+        display: inline;
+        margin-top: 5px;    
+    }
+        #Product-Form .form-elements .interested-label label 
+        {
+            width: 270px;
+            padding-top: 5px;    
+        }
+    #Product-Form .form-elements label 
+    {
+        width: 150px;
+        display: inline-block; 
+        vertical-align: top;
+        padding-top: 4px;    
+    }
+        #Product-Form .form-elements label span 
+        {
+            color: #cc0000;    
+        }
+    #Product-Form input,
+    #Product-Form textarea,
+    #Product-Form select
+    {
+        width: 150px; 
+        border: 1px solid #ccc; 
+        -moz-border-radius: 6px; 
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        padding: 0; 
+        line-height: 24px; 
+        height: 28px;
+        text-indent: 2px;        
+    }
+        #Product-Form select 
+        {
+            padding: 4px;
+            width: 318px;   
+        }
+        #Product-Form textarea 
+        {
+            min-height: 100px;    
+        }
+    #Product-Form .submit 
+    {
+        display: block;
+        background: #737373;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#737373',endColorstr='#262626');
+        background: -webkit-gradient(linear,left top,left bottom,from(#737373),to(#262626));
+        background: -moz-linear-gradient(top,#737373,#262626);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        height: 42px;
+        line-height: 42px;
+        font-size: 18px;
+        color: #fff;
+        padding: 0 20px;
+        width: auto;
+        float: right;
+        margin: 15px 9px 0 0;
+        text-align: right;
+    }

@@ -1,0 +1,37 @@
+﻿@model Turn5.BusinessModel.Models.ProductModel
+
+@{
+    ViewBag.Title = "Product";
+}
+
+@Html.Partial("_Header")
+
+<h4>Product</h4>
+
+<div class="products-container">
+    
+    <ul>
+            <li>ID: @Model.ProductId | Name: @Model.ProductName | SKU: @Model.ProductSKU</li>
+    </ul>
+    
+    <div class="form-elements-container">
+        @using (Html.BeginForm("Update", "Product", FormMethod.Post, new { id = "Product-Form" }))
+        {
+            @Html.Hidden("Id", Model.ProductId)
+            <div class="form-elements">
+                ID: @Model.ProductId
+            </div>
+            <div class="form-elements">
+                @Html.LabelFor(model => model.ProductName)
+                @Html.TextBoxFor(model => model.ProductName)
+            </div>
+            <div class="form-elements">
+                @Html.LabelFor(model => model.ProductSKU)
+                @Html.TextBoxFor(model => model.ProductSKU)
+            </div>
+            <div class="form-elements">
+                @Html.SubmitButton("Submit", new Dictionary<string, object>{{"style", "width: 80px"}})  
+            </div>
+        }
+    </div>
+</div>
