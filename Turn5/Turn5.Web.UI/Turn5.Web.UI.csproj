@@ -172,6 +172,7 @@
     <Content Include="Views\AmericanMuscle\Product\Product.cshtml" />
     <Content Include="Views\AmericanMuscle\Shared\_Header.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="VERSION_NUMBERS.ini" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
