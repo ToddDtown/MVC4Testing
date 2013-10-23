@@ -3,9 +3,9 @@ using System.Web.Mvc;
 
 namespace Turn5.Web.Mvc.ViewEngine
 {
-    public class TestItOutViewEngine : ThemeableBuildManagerViewEngine
+    public class Turn5ViewEngine : ThemeableBuildManagerViewEngine
     {
-        public TestItOutViewEngine()
+        public Turn5ViewEngine()
         {
             // AREAS
             // -----------------------------------------

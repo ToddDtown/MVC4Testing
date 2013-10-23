@@ -12,7 +12,7 @@ namespace Turn5.Web.Mvc
             RegisterModelBinders(ModelBinders.Binders);
 
             ViewEngines.Engines.Clear();
-            var themeableRazorViewEngine = new TestItOutViewEngine
+            var themeableRazorViewEngine = new Turn5ViewEngine
                         {
                             CurrentTheme = @base => "AmericanMuscle"
                         };

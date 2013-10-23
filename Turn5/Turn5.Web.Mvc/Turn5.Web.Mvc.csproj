@@ -61,7 +61,7 @@
     <Compile Include="MvcBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewEngine\BuildManagerWrapper.cs" />
-    <Compile Include="ViewEngine\TestItOutViewEngine.cs" />
+    <Compile Include="ViewEngine\Turn5ViewEngine.cs" />
     <Compile Include="ViewEngine\ThemeableBuildManagerViewEngine.cs" />
     <Compile Include="ViewEngine\ThemeableVirtualPathProviderViewEngine.cs" />
   </ItemGroup>
