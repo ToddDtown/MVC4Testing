@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("This application is used to test MVC4 techniques and build configurations.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Turn5, Inc.")]
-[assembly: AssemblyProduct("Turn5.Web.UI")]
+[assembly: AssemblyProduct("Turn5.WebServices")]
 [assembly: AssemblyCopyright("©Turn5, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("666a0cc9-791f-4a54-a996-be971763912d")]
+[assembly: Guid("6382cd56-c421-4f48-8301-ac70140340a4")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,7 +29,8 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.3.1")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
