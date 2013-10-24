@@ -4,6 +4,31 @@
     ViewBag.Title = "HomePage";
 }
 
+@section Head 
+{
+
+}
+
+
+
+
 @Html.Partial("_Header")
 
+<h1>A TEST</h1>
+
+<div style="color: red">
+    Another Change
+    @Html.Partial("MyPartial")
+</div>
+
 @Html.Link("Product", "/product", null)
+
+
+
+
+@section StartupScripts
+{
+    <script language="javascript">
+        $("#viewer").RenderViewer('@Model.SKU');
+    </script>
+}

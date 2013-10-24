@@ -90,7 +90,7 @@
       <Name>Turn5.Web.Mvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\Turn5.Web.UI\Turn5.Web.UI.csproj">
-      <Project>{4331b966-8cec-4217-b7e6-211e001b28b6}</Project>
+      <Project>{22e1fcf9-c4a7-4bf0-8c9f-e3ea74301f64}</Project>
       <Name>Turn5.Web.UI</Name>
     </ProjectReference>
   </ItemGroup>

@@ -2,6 +2,6 @@
 {
     public class HomeModel : BaseModel
     {
-
+        public string SKU { get; set; }
     }
 }

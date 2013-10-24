@@ -10,8 +10,8 @@ namespace Turn5.Web.UI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default", 
-                "{controller}/{action}", 
+                "Default",
+                "{controller}/{action}",
                 new { controller = "HomePage", action = "Get" }
             );
         }

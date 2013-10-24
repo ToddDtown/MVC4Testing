@@ -9,11 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turn5.DataAccess", "Turn5.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turn5.Web.Mvc", "Turn5.Web.Mvc\Turn5.Web.Mvc.csproj", "{E57E1B6E-3327-4195-BA64-8FDE9CAA4D02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turn5.Web.UI", "Turn5.Web.UI\Turn5.Web.UI.csproj", "{4331B966-8CEC-4217-B7E6-211E001B28B6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turn5.WebServices", "Turn5.WebServices\Turn5.WebServices.csproj", "{8E0DF0FA-9704-4CB0-99BC-164E6639471F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turn5.Web.UnitTests", "Turn5.Web.UnitTests\Turn5.Web.UnitTests.csproj", "{25AA96BB-0304-4B72-BAE7-02C6F1D65402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turn5.Web.UI", "Turn5.Web.UI\Turn5.Web.UI.csproj", "{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,13 +42,6 @@ Global
 		{E57E1B6E-3327-4195-BA64-8FDE9CAA4D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E57E1B6E-3327-4195-BA64-8FDE9CAA4D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E57E1B6E-3327-4195-BA64-8FDE9CAA4D02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug (MVC Only)|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Debug (UI Only)|Any CPU.ActiveCfg = Debug (UI Only)|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Debug (UI Only)|Any CPU.Build.0 = Debug (UI Only)|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4331B966-8CEC-4217-B7E6-211E001B28B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug (MVC Only)|Any CPU
 		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug (UI Only)|Any CPU.ActiveCfg = Debug (UI Only)|Any CPU
 		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -61,6 +54,14 @@ Global
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Debug (MVC Only)|Any CPU.Build.0 = Debug|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Debug (UI Only)|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Debug (UI Only)|Any CPU.Build.0 = Debug|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

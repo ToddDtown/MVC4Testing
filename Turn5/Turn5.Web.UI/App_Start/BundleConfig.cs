@@ -23,6 +23,8 @@ namespace Turn5.Web.UI
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Resources/css/homepage.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Resources/css/products.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Resources/css/viewer.css"));
         }
     }
 }
