@@ -51,6 +51,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\lib\NLog\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\lib\StructureMap\StructureMap.dll</HintPath>
     </Reference>

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using TestItOut.WebServices;
 using Turn5.BusinessModel.Models;
 using Turn5.BusinessModel.Models.Builders;
+using Turn5.Web.Mvc.ExceptionHandling;
 using Turn5.WebServices;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -29,7 +30,7 @@ namespace Turn5.Web.Mvc.Controllers
             var searchResult = response.Value as TestSearchResult;
             //var searchId = searchResult.SearchId;
             //var products = searchResult.Products;
-            
+
             var builder = new HomeModelBuilder();
             var model = new HomeModel();
             model = builder.CreateModel();
