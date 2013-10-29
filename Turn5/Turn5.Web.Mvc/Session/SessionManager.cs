@@ -8,8 +8,8 @@ namespace Turn5.Web.Mvc.Session
 
         public SessionManager()
         {
-            if (_instance == null) 
-                _instance = new CouchbaseClient();
+            //if (_instance == null) 
+                //_instance = new CouchbaseClient();
         }
 
         public void Store(string key, string value)

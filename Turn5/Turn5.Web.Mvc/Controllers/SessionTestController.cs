@@ -8,13 +8,13 @@ namespace Turn5.Web.Mvc.Controllers
         public ActionResult Get()
         {
 
-            var sessionMgr = new SessionManager();
+            //var sessionMgr = new SessionManager();
 
-            sessionMgr.Store("", "");
+            //sessionMgr.Store("", "");
 
-            var sessionMgr2 = new SessionManager();
+            //var sessionMgr2 = new SessionManager();
             
-            sessionMgr2.Store("", "");
+            //sessionMgr2.Store("", "");
 
             return View("SessionTest");
         }
