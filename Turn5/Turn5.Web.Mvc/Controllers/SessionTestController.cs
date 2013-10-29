@@ -1,20 +1,18 @@
 ﻿using System.Web.Mvc;
+using Enyim.Caching.Memcached;
 using Turn5.Web.Mvc.Session;
 
 namespace Turn5.Web.Mvc.Controllers
 {
     public class SessionTestController : BaseController
     {
+        private readonly string _key = "user:1234";
+
         public ActionResult Get()
         {
+            CouchbaseManager.Store(_key, "123", StoreMode.Replace);
 
-            //var sessionMgr = new SessionManager();
-
-            //sessionMgr.Store("", "");
-
-            //var sessionMgr2 = new SessionManager();
-            
-            //sessionMgr2.Store("", "");
+            var userInfo = CouchbaseManager.Get(_key);
 
             return View("SessionTest");
         }

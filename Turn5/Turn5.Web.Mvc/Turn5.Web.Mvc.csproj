@@ -93,7 +93,7 @@
     <Compile Include="IoC\StructureMapDependencyResolver.cs" />
     <Compile Include="MvcBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Session\SessionManager.cs" />
+    <Compile Include="Session\CouchbaseManager.cs" />
     <Compile Include="ViewEngine\BuildManagerWrapper.cs" />
     <Compile Include="ViewEngine\Turn5ViewEngine.cs" />
     <Compile Include="ViewEngine\ThemeableBuildManagerViewEngine.cs" />
