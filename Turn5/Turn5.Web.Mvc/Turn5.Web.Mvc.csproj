@@ -87,6 +87,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UserInfoTestController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="IoC\StructureMapBootstrapper.cs" />

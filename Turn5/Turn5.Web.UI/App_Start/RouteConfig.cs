@@ -12,7 +12,7 @@ namespace Turn5.Web.UI
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}",
-                new { controller = "UserInfoTest", action = "Get" }
+                new { controller = "Products", action = "Get" }
             );
 
             routes.MapRoute(

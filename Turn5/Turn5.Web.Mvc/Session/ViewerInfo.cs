@@ -11,7 +11,6 @@ namespace Turn5.Web.Mvc.Session
     {
         [JsonProperty("ImageUrls")]
         public List<ImageUrl> ViewerImageUrls;
-
     }
 
     [JsonObject("ImageUrl")]

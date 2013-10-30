@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.Mvc;
 using Enyim.Caching.Memcached;
 using Newtonsoft.Json;
+using NLog.Internal;
 using Turn5.Web.Mvc.Session;
+using System.Configuration;
 
 namespace Turn5.Web.Mvc.Controllers
 {
@@ -50,35 +54,34 @@ namespace Turn5.Web.Mvc.Controllers
                 LastLogin = DateTime.Now,
                 Type = _type
             };
-            
+
             //StoreMode mode;
             //if (CouchbaseManager.Get(_key) != null)
             //    mode = StoreMode.Set;
             //else
             //    mode = StoreMode.Add;
 
-            //CouchbaseManager.StoreJson(_key, userInfo, StoreMode.Set);
+            CouchbaseManager.StoreJson(_key, userInfo, StoreMode.Set);
 
-            var imageViewerInfo = new ImageViewerInfo();
-            imageViewerInfo.ViewerImageUrls = new List<ImageUrl>();
+            //var imageViewerInfo = new ImageViewerInfo();
+            //imageViewerInfo.ViewerImageUrls = new List<ImageUrl>();
 
-            var imageUrl = new ImageUrl {Url = "http://www.cdn.com/image1.jpg", Origin = "IR"};
-            imageViewerInfo.ViewerImageUrls.Add(imageUrl);
+            //var imageUrl = new ImageUrl {Url = "http://www.cdn.com/image1.jpg", Origin = "IR"};
+            //imageViewerInfo.ViewerImageUrls.Add(imageUrl);
 
-            imageUrl = new ImageUrl { Url = "http://www.cdn.com/image2.jpg", Origin = "IS" };
-            imageViewerInfo.ViewerImageUrls.Add(imageUrl);
+            //imageUrl = new ImageUrl { Url = "http://www.cdn.com/image2.jpg", Origin = "IS" };
+            //imageViewerInfo.ViewerImageUrls.Add(imageUrl);
 
-            imageUrl = new ImageUrl { Url = "http://www.cdn.com/image3.jpg", Origin = "IS" };
-            imageViewerInfo.ViewerImageUrls.Add(imageUrl);
+            //imageUrl = new ImageUrl { Url = "http://www.cdn.com/image3.jpg", Origin = "IS" };
+            //imageViewerInfo.ViewerImageUrls.Add(imageUrl);
 
-            imageUrl = new ImageUrl { Url = "http://www.cdn.com/image4.jpg", Origin = "IR" };
-            imageViewerInfo.ViewerImageUrls.Add(imageUrl);
+            //imageUrl = new ImageUrl { Url = "http://www.cdn.com/image4.jpg", Origin = "IR" };
+            //imageViewerInfo.ViewerImageUrls.Add(imageUrl);
 
-            imageUrl = new ImageUrl { Url = "http://www.cdn.com/image5.jpg", Origin = "IS" };
-            imageViewerInfo.ViewerImageUrls.Add(imageUrl);
-
-
-            CouchbaseManager.StoreJson(_key, imageViewerInfo, StoreMode.Set);
+            //imageUrl = new ImageUrl { Url = "http://www.cdn.com/image5.jpg", Origin = "IS" };
+            //imageViewerInfo.ViewerImageUrls.Add(imageUrl);
+            
+            //CouchbaseManager.StoreJson(_key, imageViewerInfo, StoreMode.Set);
             
             return View("UserInfoTest");
         }

@@ -164,6 +164,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\AmericanMuscle\UserInfoTest\UserInfoTest.cshtml" />
+    <Content Include="Views\AmericanMuscle\Products\Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
