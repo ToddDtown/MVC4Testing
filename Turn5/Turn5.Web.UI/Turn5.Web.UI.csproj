@@ -130,7 +130,7 @@
     </Content>
     <Content Include="ConfigData\ConnectionStrings.config" />
     <None Include="Resources\scripts\jquery\jquery-1.7.1.intellisense.js" />
-    <Content Include="Resources\scripts\custom\google-map-directions.js" />
+    <Content Include="Resources\scripts\custom\user-info.js" />
     <Content Include="Resources\scripts\jquery\jquery-1.7.1.js" />
     <Content Include="Resources\scripts\jquery\jquery-1.7.1.min.js" />
     <Content Include="Resources\scripts\jquery\jquery-ui-1.8.20.js" />
@@ -163,11 +163,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\AmericanMuscle\SessionTest\SessionTest.cshtml" />
+    <Content Include="Views\AmericanMuscle\UserInfoTest\UserInfoTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
     <Folder Include="Resources\images\" />
   </ItemGroup>
   <ItemGroup>

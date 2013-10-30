@@ -12,7 +12,13 @@ namespace Turn5.Web.UI
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}",
-                new { controller = "SessionTest", action = "Get" }
+                new { controller = "UserInfoTest", action = "Get" }
+            );
+
+            routes.MapRoute(
+                "Ajax",
+                "ajax/{action}",
+                new { controller = "Ajax" }
             );
         }
     }

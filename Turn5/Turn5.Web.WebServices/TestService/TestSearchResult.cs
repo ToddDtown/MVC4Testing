@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Turn5.BusinessModel.Models;
 
-namespace TestItOut.WebServices
+namespace Turn5.Web.WebServices
 {
     public class TestSearchResult
     {

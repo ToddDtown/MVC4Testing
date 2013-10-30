@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "UserInfo";
+}
+
+<h2>User Information</h2>
+
+@Html.Link("Get User Info", "#", new Dictionary<string, object>{ {"id", "UserInfoLink"}, {"onclick", "javascript: return false;"} })
+
+<br/><br />
+
+<div id="user-info" style="display: none; border: solid 1px black; border-radius: 10px;">
+    First Name: <span id="first-name" style="display: block;"></span>
+    Last Name: <span id="last-name" style="display: block;"></span>
+    Favorite SKUs: <span id="favorite-skus" style="display: block;"></span>
+    Cart ID: <span id="cart-id" style="display: block;"></span>
+    Cart Items: <span id="cart-items" style="display: block;"></span>
+    Last Login: <span id="last-login" style="display: block;"></span>
+</div>

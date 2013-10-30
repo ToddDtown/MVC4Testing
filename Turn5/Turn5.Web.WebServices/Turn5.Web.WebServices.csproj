@@ -7,8 +7,8 @@
     <ProjectGuid>{8E0DF0FA-9704-4CB0-99BC-164E6639471F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Turn5.WebServices</RootNamespace>
-    <AssemblyName>Turn5.WebServices</AssemblyName>
+    <RootNamespace>Turn5.Web.WebServices</RootNamespace>
+    <AssemblyName>Turn5.Web.WebServices</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
