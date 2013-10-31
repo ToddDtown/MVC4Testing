@@ -13,11 +13,10 @@ namespace Turn5.BusinessModel.Models.Builders
             {
                 Connection = sqlConn,
                 CommandType = CommandType.StoredProcedure,
-                CommandText = "spGetProducts_Paging"
+                CommandText = "spGetProducts"
             };
 
             SqlParameter param;
-
             if (page != null)
             {
                 param = new SqlParameter { ParameterName = "PAGE", Value = page };

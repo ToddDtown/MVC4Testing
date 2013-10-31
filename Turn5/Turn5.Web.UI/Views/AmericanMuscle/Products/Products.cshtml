@@ -12,7 +12,7 @@
         <div style="display: inline-block; float: left;">@Html.Link("<", "/products?page=" + (Model.Page == 1 ? 1 : (Model.Page - 1)) + "&pagesize=10")</div>
         <div style="display: inline-block; float: right;">@Html.Link(">", "/products?page=" + (Model.Page == 10 ? 10 : (Model.Page + 1)) + "&pagesize=10")</div>
     </div>
-    <table style="">
+    <table>
         <tr>
             <td><strong>Product ID</strong></td>
             <td><strong>Product Name</strong></td>
