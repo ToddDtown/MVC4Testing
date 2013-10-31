@@ -12,7 +12,7 @@ namespace MyCompany.Web.UI
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}",
-                new { controller = "Products", action = "Get" }
+                new { controller = "HomePage", action = "Get" }
             );
 
             routes.MapRoute(

@@ -18,7 +18,7 @@ namespace MyCompany.Web.Mvc
                         };
             ViewEngines.Engines.Add(themeableRazorViewEngine);
 
-            StructureMapBootstrapper.Bootstrap();
+            //StructureMapBootstrapper.Bootstrap();
         }
 
         public static void RegisterModelBinders(ModelBinderDictionary binders)
