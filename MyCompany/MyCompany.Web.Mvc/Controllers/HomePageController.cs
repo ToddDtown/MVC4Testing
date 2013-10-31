@@ -21,10 +21,9 @@ namespace MyCompany.Web.Mvc.Controllers
 
         public ActionResult Get()
         {
-            var testSetting = ConfigurationManager.AppSettings["TestSetting"];
-
+            //var testSetting = ConfigurationManager.AppSettings["TestSetting"];
             //var testObjects = GetTestObject();
-
+            
             //var response = _testService.GetResponse<TestSearchResult>();
             //var searchResult = response.Value as TestSearchResult;
             //var searchId = searchResult.SearchId;
