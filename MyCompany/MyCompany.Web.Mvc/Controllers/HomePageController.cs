@@ -14,18 +14,18 @@ namespace MyCompany.Web.Mvc.Controllers
     {
         protected ITestService _testService;
 
-        //public HomePageController(ITestService testService)
-        //{
-        //    _testService = testService;
-        //}
+        public HomePageController(ITestService testService)
+        {
+            _testService = testService;
+        }
 
         public ActionResult Get()
         {
             //var testSetting = ConfigurationManager.AppSettings["TestSetting"];
             //var testObjects = GetTestObject();
             
-            //var response = _testService.GetResponse<TestSearchResult>();
-            //var searchResult = response.Value as TestSearchResult;
+            var response = _testService.GetResponse<TestSearchResult>();
+            var searchResult = response.Value as TestSearchResult;
             //var searchId = searchResult.SearchId;
             //var products = searchResult.Products;
 

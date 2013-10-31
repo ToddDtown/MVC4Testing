@@ -14,6 +14,7 @@ namespace MyCompany.Web.UI
     {
         protected void Application_Start()
         {
+            UnityBootstrapper.Initialise();
             MvcBootstrapper.Bootstrap();
 
             AreaRegistration.RegisterAllAreas();
