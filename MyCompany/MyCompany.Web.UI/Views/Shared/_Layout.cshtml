@@ -11,9 +11,11 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("Head", false)
 </head>
-<body>
-    @RenderBody()
-    @Scripts.Render("~/bundles/mycompany")
-    @RenderSection("StartupScripts", false)
-</body>
+    <body>
+        <div class="master-container">
+            @RenderBody()    
+        </div>
+        @Scripts.Render("~/bundles/mycompany")
+        @RenderSection("StartupScripts", false)
+    </body>
 </html>

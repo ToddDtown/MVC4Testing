@@ -7,6 +7,10 @@ namespace MyCompany.Web.UI
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // ##############################################################################################################################
+            // JAVASCRIPT
+            // ##############################################################################################################################
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Resources/scripts/jquery/jquery-1.7.1.js",
                                                                      "~/Resources/scripts/jquery/jquery-ui-1.8.20.js",
                                                                      "~/Resources/scripts/jquery/jquery.unobtrusive*",
@@ -16,13 +20,14 @@ namespace MyCompany.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/mycompany").Include("~/Resources/scripts/custom/user-info.js"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Resources/scripts/modernizer/modernizr-*"));
+            // ##############################################################################################################################
+            // CSS
+            // ##############################################################################################################################
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Resources/css/homepage.css",
                                                                  "~/Resources/css/products.css",
-                                                                 "~/Resources/css/viewer.css"));
+                                                                 "~/Resources/css/viewer.css",
+                                                                 "~/Resources/css/core.css"));
 
             bundles.Add(new StyleBundle("~/Content/jquery-mobile").Include("~/Resources/css/jquery-mobile/jquery.mobile.custom.structure.css",
                                                                            "~/Resources/css/jquery-mobile/jquery.mobile.custom.theme.css"));

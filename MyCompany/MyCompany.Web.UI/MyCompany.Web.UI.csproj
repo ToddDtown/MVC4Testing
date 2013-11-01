@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Resources\css\core.css" />
     <Content Include="Resources\css\homepage.css" />
     <Content Include="Resources\css\products.css" />
     <Content Include="ConfigData\AppSettings.config">
@@ -176,6 +177,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resources\images\" />
+    <Folder Include="Views\HomePage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
