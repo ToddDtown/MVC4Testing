@@ -12,6 +12,8 @@ namespace MyCompany.Web.UI
                                                                      "~/Resources/scripts/jquery/jquery.unobtrusive*",
                                                                      "~/Resources/scripts/jquery/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery-mobile").Include("~/Resources/scripts/jquery-mobile/jquery.mobile.custom.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/mycompany").Include("~/Resources/scripts/custom/user-info.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -21,6 +23,9 @@ namespace MyCompany.Web.UI
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Resources/css/homepage.css",
                                                                  "~/Resources/css/products.css",
                                                                  "~/Resources/css/viewer.css"));
+
+            bundles.Add(new StyleBundle("~/Content/jquery-mobile").Include("~/Resources/css/jquery-mobile/jquery.mobile.custom.structure.css",
+                                                                           "~/Resources/css/jquery-mobile/jquery.mobile.custom.theme.css"));
         }
     }
 }

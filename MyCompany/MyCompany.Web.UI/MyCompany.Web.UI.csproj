@@ -131,6 +131,12 @@
     <Content Include="ConfigData\ConnectionStrings.config" />
     <None Include="Resources\scripts\jquery\jquery-1.7.1.intellisense.js" />
     <Content Include="Resources\scripts\custom\user-info.js" />
+    <Content Include="Resources\scripts\jquery-mobile\jquery.mobile.custom.js" />
+    <Content Include="Resources\scripts\jquery-mobile\jquery.mobile.custom.min.js" />
+    <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.structure.css" />
+    <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.structure.min.css" />
+    <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.theme.css" />
+    <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.theme.min.css" />
     <Content Include="Resources\scripts\jquery\jquery-1.7.1.js" />
     <Content Include="Resources\scripts\jquery\jquery-1.7.1.min.js" />
     <Content Include="Resources\scripts\jquery\jquery-ui-1.8.20.js" />
@@ -155,16 +161,17 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\AmericanMuscle\HomePage\HomePage.cshtml" />
-    <Content Include="Views\AmericanMuscle\HomePage\MyPartial.cshtml" />
-    <Content Include="Views\AmericanMuscle\Product\Product.cshtml" />
-    <Content Include="Views\AmericanMuscle\Shared\_Header.cshtml" />
+    <Content Include="Views\MyCompany\HomePage\HomePage.cshtml" />
+    <Content Include="Views\MyCompany\HomePage\MyPartial.cshtml" />
+    <Content Include="Views\MyCompany\Product\Product.cshtml" />
+    <Content Include="Views\MyCompany\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\AmericanMuscle\UserInfoTest\UserInfoTest.cshtml" />
-    <Content Include="Views\AmericanMuscle\Products\Products.cshtml" />
+    <Content Include="Views\MyCompany\UserInfoTest\UserInfoTest.cshtml" />
+    <Content Include="Views\MyCompany\Products\Products.cshtml" />
+    <Content Include="Views\MyCompany\JQueryMobile\JQueryMobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

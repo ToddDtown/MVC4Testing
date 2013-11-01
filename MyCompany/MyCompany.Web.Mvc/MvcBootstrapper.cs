@@ -14,7 +14,7 @@ namespace MyCompany.Web.Mvc
             ViewEngines.Engines.Clear();
             var themeableRazorViewEngine = new MyCompanyViewEngine
                         {
-                            CurrentTheme = @base => "AmericanMuscle"
+                            CurrentTheme = @base => "MyCompany"
                         };
             ViewEngines.Engines.Add(themeableRazorViewEngine);
 
