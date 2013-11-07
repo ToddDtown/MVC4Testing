@@ -1,8 +1,8 @@
 ﻿namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
-    public class BazaarVoiceModelBuilder : BaseModelBuilder
+    public static class BazaarVoiceModelBuilder
     {
-        public BazaarVoiceModel CreateModel(string bvResponse)
+        public static BazaarVoiceModel CreateModel(string bvResponse)
         {
             var model = new BazaarVoiceModel
             {

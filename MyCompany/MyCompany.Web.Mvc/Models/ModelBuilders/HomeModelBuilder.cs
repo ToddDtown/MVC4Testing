@@ -2,9 +2,9 @@
 
 namespace MyCompany.Web.Mvc.Models.ModelBuilders 
 {
-    public class HomeModelBuilder : BaseModelBuilder
+    public static class HomeModelBuilder
     {
-        public HomeModel CreateModel()
+        public static HomeModel CreateModel()
         {
             var model = new HomeModel();
             return model;

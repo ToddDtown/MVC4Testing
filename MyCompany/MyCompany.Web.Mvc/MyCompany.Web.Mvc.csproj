@@ -106,7 +106,6 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BazaarVoiceModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
-    <Compile Include="Models\ModelBuilders\BaseModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\BazaarVoiceModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\IModelFactory.cs" />

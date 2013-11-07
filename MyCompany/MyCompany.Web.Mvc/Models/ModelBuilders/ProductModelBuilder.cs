@@ -2,7 +2,7 @@
 
 namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
-    public class ProductModelBuilder : BaseModelBuilder
+    public class ProductModelBuilder
     {
         public ProductModel CreateModel()
         {

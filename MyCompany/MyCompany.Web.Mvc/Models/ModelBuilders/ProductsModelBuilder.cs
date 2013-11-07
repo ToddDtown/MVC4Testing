@@ -5,7 +5,7 @@ using MyCompany.BusinessModel.Models;
 
 namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
-    public class ProductsModelBuilder : BaseModelBuilder
+    public class ProductsModelBuilder 
     {
         public ProductsModel CreateModel(int? page, int? pageSize)
         {

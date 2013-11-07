@@ -28,9 +28,9 @@ namespace MyCompany.Web.Mvc.Controllers
             //var searchId = searchResult.SearchId;
             //var products = searchResult.Products;
 
-            var builder = new HomeModelBuilder();
-            var model = new HomeModel();
-            model = builder.CreateModel();
+            var modelFactory = new ModelFactory();
+            var model = modelFactory.CreateHomeModel();
+
             return View("HomePage", model);
         }
 
