@@ -87,10 +87,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyCompany.BusinessModel\MyCompany.BusinessModel.csproj">
-      <Project>{2288c0c5-d002-45d9-86c6-0297f1f11b3e}</Project>
-      <Name>MyCompany.BusinessModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyCompany.DataAccess\MyCompany.DataAccess.csproj">
       <Project>{e91b017b-db55-4043-a3fd-f9a341260426}</Project>
       <Name>MyCompany.DataAccess</Name>

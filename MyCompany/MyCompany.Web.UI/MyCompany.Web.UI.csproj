@@ -173,6 +173,7 @@
     <Content Include="Views\MyCompany\UserInfoTest\UserInfoTest.cshtml" />
     <Content Include="Views\MyCompany\Products\Products.cshtml" />
     <Content Include="Views\MyCompany\JQueryMobile\JQueryMobile.cshtml" />
+    <Content Include="Views\MyCompany\BazaarVoice\BazaarVoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -183,10 +184,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyCompany.BusinessModel\MyCompany.BusinessModel.csproj">
-      <Project>{2288c0c5-d002-45d9-86c6-0297f1f11b3e}</Project>
-      <Name>MyCompany.BusinessModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyCompany.Web.Mvc\MyCompany.Web.Mvc.csproj">
       <Project>{e57e1b6e-3327-4195-ba64-8fde9caa4d02}</Project>
       <Name>MyCompany.Web.Mvc</Name>

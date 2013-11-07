@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.20827.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.BusinessModel", "MyCompany.BusinessModel\MyCompany.BusinessModel.csproj", "{2288C0C5-D002-45D9-86C6-0297F1F11B3E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.DataAccess", "MyCompany.DataAccess\MyCompany.DataAccess.csproj", "{E91B017B-DB55-4043-A3FD-F9A341260426}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.Mvc", "MyCompany.Web.Mvc\MyCompany.Web.Mvc.csproj", "{E57E1B6E-3327-4195-BA64-8FDE9CAA4D02}"
@@ -23,14 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug (MVC Only)|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Debug (MVC Only)|Any CPU.Build.0 = Debug (MVC Only)|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Debug (UI Only)|Any CPU.ActiveCfg = Debug (UI Only)|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Debug (UI Only)|Any CPU.Build.0 = Debug (UI Only)|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2288C0C5-D002-45D9-86C6-0297F1F11B3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E91B017B-DB55-4043-A3FD-F9A341260426}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug (MVC Only)|Any CPU
 		{E91B017B-DB55-4043-A3FD-F9A341260426}.Debug (MVC Only)|Any CPU.Build.0 = Debug (MVC Only)|Any CPU
 		{E91B017B-DB55-4043-A3FD-F9A341260426}.Debug (UI Only)|Any CPU.ActiveCfg = Debug (UI Only)|Any CPU

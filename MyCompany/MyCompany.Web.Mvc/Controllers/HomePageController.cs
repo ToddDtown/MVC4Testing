@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using MyCompany.BusinessModel.Models;
-using MyCompany.BusinessModel.Models.Builders;
-using MyCompany.Web.WebServices;
+using MyCompany.Web.Mvc.Models.ModelBuilders;
 using MyCompany.WebServices;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -24,8 +23,8 @@ namespace MyCompany.Web.Mvc.Controllers
             //var testSetting = ConfigurationManager.AppSettings["TestSetting"];
             //var testObjects = GetTestObject();
             
-            var response = _testService.GetResponse<TestSearchResult>();
-            var searchResult = response.Value as TestSearchResult;
+            //var response = _testService.GetResponse<TestSearchResult>();
+            //var searchResult = response.Value as TestSearchResult;
             //var searchId = searchResult.SearchId;
             //var products = searchResult.Products;
 

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using MyCompany.BusinessModel.Models;
 
-namespace MyCompany.BusinessModel.Models.Builders
+namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
     public class ProductsModelBuilder : BaseModelBuilder
     {

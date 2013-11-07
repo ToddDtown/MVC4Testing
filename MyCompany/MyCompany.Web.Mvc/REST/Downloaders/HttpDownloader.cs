@@ -4,62 +4,19 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using Couchbase;
-using Couchbase.Extensions;
-using MyCompany.Web.Mvc.Downloaders;
 
 namespace MyCompany.Web.Mvc.REST.Downloaders
 {
-    public class Downloader<T> : IDownloader
+    public class HttpDownloader : IDownloader
     {
-        private readonly CouchbaseClient _couchbaseClientInstance;
-        private readonly bool _useCache = false;
-
         public int RequestTimeout { get; set; }
-
-        public Downloader() : this(false)
-        {
-            
-        }
-
-        public Downloader(bool useCache)
-        {
-            _useCache = useCache;
-            if (_useCache)
-            {
-                if (_couchbaseClientInstance == null)
-                    _couchbaseClientInstance = new CouchbaseClient();
-            }
-        }
 
         public DownloaderResponse GetResponse(Uri uri)
         {
-            return GetResponse(uri, null, CacheSelector.Unknown, HttpRequestMethod.GET, null);
+            return GetResponse(uri, HttpRequestMethod.GET, null);
         }
 
-        public DownloaderResponse GetResponse(Uri uri, string cacheKey, CacheSelector cacheSelector)
-        {
-            return GetResponse(uri, cacheKey, cacheSelector, HttpRequestMethod.GET, null);
-        }
-
-        public DownloaderResponse GetResponse(Uri uri, string cacheKey, CacheSelector cacheSelector, HttpRequestMethod method, Dictionary<string, string> parameters)
-        {
-            return _useCache ? TryCache(uri, cacheKey, cacheSelector) : TryHttp(uri, method, parameters);
-        }
-
-        private DownloaderResponse TryCache(Uri uri, string cacheKey, CacheSelector cacheSelector)
-        {
-            if (_couchbaseClientInstance != null)
-            {
-                var cachedContent = _couchbaseClientInstance.Get(cacheKey);
-                if (cachedContent != null)
-                {
-                    return new DownloaderResponse(cachedContent.ToString());
-                }
-            }
-        }
-
-        private DownloaderResponse TryHttp(Uri uri, HttpRequestMethod method, Dictionary<string, string> parameters)
+        public DownloaderResponse GetResponse(Uri uri, HttpRequestMethod method, Dictionary<string, string> parameters)
         {
             var request = WebRequest.Create(uri);
             request.Method = ((object)method).ToString();
@@ -72,10 +29,9 @@ namespace MyCompany.Web.Mvc.REST.Downloaders
 
             HttpWebResponse httpWebResponse;
             DownloaderResponse downloaderResponse;
-
             try
             {
-                
+
                 httpWebResponse = (HttpWebResponse)request.GetResponse();
                 var buffer = new byte[4096];
                 byte[] responseBytes;
@@ -98,8 +54,8 @@ namespace MyCompany.Web.Mvc.REST.Downloaders
                 if (ex.Response == null) throw;
 
                 httpWebResponse = (HttpWebResponse)ex.Response;
-                
-                var response = string.Empty;
+
+                string response;
                 using (var streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
                     response = streamReader.ReadToEnd();
@@ -117,8 +73,6 @@ namespace MyCompany.Web.Mvc.REST.Downloaders
         private static void AddPOSTParameters(WebRequest request, Dictionary<string, string> parameters)
         {
             var encoding = (Encoding)new UTF8Encoding(false);
-
-            var x = parameters.Aggregate(string.Empty, (keyString, pair) => keyString + "&" + pair.Key + "=" + pair.Value);
 
             var queryStringParams = parameters.Aggregate(string.Empty, (keyString, pair) => keyString + "&" + pair.Key + "=" + pair.Value).Remove(0, 1);
 

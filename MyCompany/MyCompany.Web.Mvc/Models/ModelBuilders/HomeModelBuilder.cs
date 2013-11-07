@@ -1,12 +1,9 @@
-﻿namespace MyCompany.BusinessModel.Models.Builders
+﻿using MyCompany.BusinessModel.Models;
+
+namespace MyCompany.Web.Mvc.Models.ModelBuilders 
 {
     public class HomeModelBuilder : BaseModelBuilder
     {
-        public HomeModelBuilder()
-        {
-            
-        }
-
         public HomeModel CreateModel()
         {
             var model = new HomeModel();

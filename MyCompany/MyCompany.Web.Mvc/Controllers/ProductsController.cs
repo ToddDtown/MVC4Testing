@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
-using MyCompany.BusinessModel.Models.Builders;
+using MyCompany.Web.Mvc.Models.ModelBuilders;
 
 namespace MyCompany.Web.Mvc.Controllers
 {

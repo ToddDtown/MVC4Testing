@@ -1,4 +1,6 @@
-﻿namespace MyCompany.BusinessModel.Models.Builders
+﻿using MyCompany.BusinessModel.Models;
+
+namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
     public class ProductModelBuilder : BaseModelBuilder
     {

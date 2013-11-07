@@ -12,7 +12,7 @@ namespace MyCompany.Web.UI
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}",
-                new { controller = "JQueryMobile", action = "Get" }
+                new { controller = "BazaarVoice", action = "Get" }
             );
 
             routes.MapRoute(

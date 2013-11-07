@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using MyCompany.BusinessModel.Models;
-using MyCompany.BusinessModel.Models.Builders;
+using MyCompany.Web.Mvc.Models.ModelBuilders;
 
 namespace MyCompany.Web.Mvc.Controllers
 {

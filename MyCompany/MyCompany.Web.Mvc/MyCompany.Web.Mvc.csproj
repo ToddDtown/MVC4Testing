@@ -94,16 +94,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\CacheManager.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BazaarVoiceController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\JQueryMobileController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UserInfoTestController.cs" />
-    <Compile Include="REST\DownloaderResponse.cs" />
-    <Compile Include="REST\Downloaders\Downloader.cs" />
-    <Compile Include="REST\Enumerations.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\BazaarVoiceModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\ModelBuilders\BaseModelBuilder.cs" />
+    <Compile Include="Models\ModelBuilders\BazaarVoiceModelBuilder.cs" />
+    <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
+    <Compile Include="Models\ModelBuilders\IModelFactory.cs" />
+    <Compile Include="Models\ModelBuilders\ModelFactory.cs" />
+    <Compile Include="Models\ModelBuilders\ProductModelBuilder.cs" />
+    <Compile Include="Models\ModelBuilders\ProductsModelBuilder.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ProductsModel.cs" />
+    <Compile Include="Queries\AbstractTurn5Query.cs" />
+    <Compile Include="Queries\WebBazaarVoiceQuery.cs" />
+    <Compile Include="Queries\WebQueryStringParameter.cs" />
+    <Compile Include="Queries\WebBaseQuery.cs" />
+    <Compile Include="Queries\WebHomePageQuery.cs" />
+    <Compile Include="Queries\WebQueryStringParameters.cs" />
+    <Compile Include="REST\Downloaders\DownloaderResponse.cs" />
+    <Compile Include="REST\Downloaders\HttpDownloader.cs" />
+    <Compile Include="Enumerations.cs" />
     <Compile Include="REST\Downloaders\IDownloader.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="IoC\StructureMapBootstrapper.cs" />
@@ -121,10 +141,6 @@
     <Compile Include="ViewEngine\ThemeableVirtualPathProviderViewEngine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyCompany.BusinessModel\MyCompany.BusinessModel.csproj">
-      <Project>{2288c0c5-d002-45d9-86c6-0297f1f11b3e}</Project>
-      <Name>MyCompany.BusinessModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj">
       <Project>{8e0df0fa-9704-4cb0-99bc-164e6639471f}</Project>
       <Name>MyCompany.Web.WebServices</Name>
@@ -133,6 +149,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

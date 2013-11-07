@@ -1,4 +1,4 @@
-﻿namespace MyCompany.BusinessModel.Models.Builders
+﻿namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
     public abstract class BaseModelBuilder
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace MyCompany.Web.Mvc.Downloaders
+namespace MyCompany.Web.Mvc.REST.Downloaders
 {
     [Serializable]
     public class DownloaderResponse
