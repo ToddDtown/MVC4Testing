@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace MyCompany.Web.Mvc.Session
+namespace MyCompany.Web.Mvc.Caching
 {
     public class UserInfo
     {

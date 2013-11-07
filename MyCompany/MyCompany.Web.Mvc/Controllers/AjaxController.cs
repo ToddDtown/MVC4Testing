@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using MyCompany.Web.Mvc.Session;
+using MyCompany.Web.Mvc.Caching;
 
 namespace MyCompany.Web.Mvc.Controllers
 {

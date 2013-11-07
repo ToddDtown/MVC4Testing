@@ -2,7 +2,7 @@
 using Couchbase.Extensions;
 using Enyim.Caching.Memcached;
 
-namespace MyCompany.Web.Mvc.Session
+namespace MyCompany.Web.Mvc.Caching
 {
     public static class CouchbaseManager
     {

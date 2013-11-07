@@ -4,9 +4,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
 using Enyim.Caching.Memcached;
+using MyCompany.Web.Mvc.Caching;
 using Newtonsoft.Json;
 using NLog.Internal;
-using MyCompany.Web.Mvc.Session;
 using System.Configuration;
 
 namespace MyCompany.Web.Mvc.Controllers

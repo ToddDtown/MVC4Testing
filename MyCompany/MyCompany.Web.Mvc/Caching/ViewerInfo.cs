@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MyCompany.Web.Mvc.Session
+namespace MyCompany.Web.Mvc.Caching
 {
     public class ImageViewerInfo
     {
