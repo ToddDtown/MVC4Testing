@@ -19,15 +19,15 @@ namespace MyCompany.Web.Mvc
 
         private static IUnityContainer BuildUnityContainer()
         {
-            var container = new UnityContainer();
-
-            container.RegisterType<ITestService, TestService>();
+            var container = new UnityContainer()
+                .RegisterType<ITestService, TestService>()
+                .RegisterType<IDownloader, HttpDownloader>()
+                .RegisterInstance<ICouchbaseClient>(new CouchbaseClient());
             
-            //container.RegisterType<IDownloader, HttpDownloader>();
-            //container.RegisterType<IBazaarVoiceManager, BazaarVoiceManager>();
-            //container.RegisterType<ICouchbaseClient, CouchbaseClient>(new InjectionConstructor());
-
-            //container.RegisterType<IController, StoreController>("Store");
+            container.RegisterType<IBazaarVoiceManager, BazaarVoiceManager>(
+                new InjectionConstructor(
+                    container.Resolve<IDownloader>(), 
+                    container.Resolve<ICouchbaseClient>()));
 
             return container;
         }

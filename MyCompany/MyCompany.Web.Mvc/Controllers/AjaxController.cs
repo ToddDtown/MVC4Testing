@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
+using Couchbase;
 using MyCompany.Web.Mvc.Caching;
 using MyCompany.Web.Mvc.REST.BazaarVoice;
+using MyCompany.Web.Mvc.REST.Downloaders;
 
 namespace MyCompany.Web.Mvc.Controllers
 {
@@ -8,10 +10,12 @@ namespace MyCompany.Web.Mvc.Controllers
     {
         private readonly IBazaarVoiceManager _bazaarVoiceManager;
 
-        public AjaxController()
+        public AjaxController(IBazaarVoiceManager bazaarVoiceManager)
         {
-            if (_bazaarVoiceManager == null)
-                _bazaarVoiceManager = new BazaarVoiceManager();
+            //if (_bazaarVoiceManager == null)
+            //    _bazaarVoiceManager = new BazaarVoiceManager(downloader, couchbaseClient);
+
+            _bazaarVoiceManager = bazaarVoiceManager;
         }
 
         public JsonResult Get(string userkey)

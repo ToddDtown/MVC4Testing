@@ -53,7 +53,7 @@ namespace MyCompany.Web.Mvc.Queries.Base
             }
             output.Replace("?&", "?");
 
-            return output.ToString();
+            return output.ToString().ToLower();
         }
     }
 }

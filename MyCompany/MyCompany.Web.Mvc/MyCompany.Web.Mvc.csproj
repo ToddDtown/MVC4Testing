@@ -72,7 +72,8 @@
     <Reference Include="NLog">
       <HintPath>..\lib\NLog\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
+    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\StructureMap\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />

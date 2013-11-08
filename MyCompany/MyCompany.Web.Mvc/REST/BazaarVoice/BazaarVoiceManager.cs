@@ -13,13 +13,16 @@ namespace MyCompany.Web.Mvc.REST.BazaarVoice
         private ICouchbaseClient _couchbaseClient;
         public string Response { get; set; }
 
-        public BazaarVoiceManager()
+        public BazaarVoiceManager(IDownloader downloader, ICouchbaseClient couchbaseClient)
         {
-            if (_downloader == null)
-                _downloader = new HttpDownloader();
+            //if (_downloader == null)
+            //    _downloader = new HttpDownloader();
 
-            if (_couchbaseClient == null)
-                _couchbaseClient = new CouchbaseClient();
+            //if (_couchbaseClient == null)
+            //    _couchbaseClient = new CouchbaseClient();
+
+            _downloader = downloader;
+            _couchbaseClient = couchbaseClient;
         }
 
         public string GetRatings(string productId)
