@@ -43,7 +43,7 @@ namespace MyCompany.Web.Mvc.REST.BazaarVoice
             var uri = new Uri(bazaarVoiceQuery.ToString());
             var response = _downloader.GetResponse(uri);
 
-            _couchbaseClient.Store(StoreMode.Set, productId, response);
+            _couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddSeconds(30));
 
             return response.ResponseString;
         }
