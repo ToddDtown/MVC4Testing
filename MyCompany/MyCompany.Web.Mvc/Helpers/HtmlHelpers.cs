@@ -51,5 +51,13 @@ namespace MyCompany.Web.Mvc.Helpers
 
             return new MvcHtmlString(tb.ToString());
         }
+
+        public static MvcHtmlString JavaScriptVariable(this HtmlHelper helper, string varName, object varValue)
+        {
+            if (varValue is string)
+                return new MvcHtmlString(string.Format("var {0} = '{1}';", varName, varValue));
+
+            return new MvcHtmlString(string.Format("var {0} = {1};", varName, varValue));
+        }
     }
 }

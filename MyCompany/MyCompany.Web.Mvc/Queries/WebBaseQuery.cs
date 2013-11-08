@@ -39,7 +39,6 @@ namespace MyCompany.Web.Mvc.Queries
             output.Append(_basePath);
             output.Append(UriTemplate);
 
-            var count = 0;
             object propName = null;
             object propValue = null;
             foreach (var parameter in Parameters.ParameterList())
@@ -60,9 +59,9 @@ namespace MyCompany.Web.Mvc.Queries
                     propValue = ((WebQueryStringParameter<bool>)parameter.Value).Value;
                 }
 
-                output.Replace(parameter.Key, (count > 0 ? "&" : string.Empty) + propName + "=" + propValue);
-                count++;
+                output.Replace(parameter.Key, ("&" + propName + "=" + propValue));
             }
+            output.Replace("?&", "?");
 
             return output.ToString();
         }

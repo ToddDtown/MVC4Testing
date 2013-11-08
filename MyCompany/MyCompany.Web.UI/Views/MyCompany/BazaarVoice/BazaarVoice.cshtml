@@ -1,9 +1,45 @@
-﻿@model MyCompany.Web.Mvc.Models.BazaarVoiceModel
+﻿@model string
 
 @{
     ViewBag.Title = "BazaarVoice";
 }
 
-<h1>BazaarVoice - SKU: 49129</h1>
+@section Head
+{
 
-<h3>Response String:</h3> @Model.RatingsResponse
+}
+
+<h1>BazaarVoice Ratings and Reviews</h1>
+<br/><br />
+@Html.Link("Get Ratings and Reviews", "#", new Dictionary<string, object>{{"id", "ratings-button"}})
+<br /><br />
+<div id="ratings-content"></div>
+
+@section StartupScripts
+{
+    <script type="text/javascript">
+        
+        @Html.JavaScriptVariable("productId", @Model)
+
+        $("#ratings-button").click(function() {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "/ajax/getratings?productid=" + productId
+            }).done(function (data, textStatus, jqXHR) {
+
+                $.each(data.Results, function(index, data) {
+                    $("#ratings-content").append("<div><strong>Nickname:</strong> " + data.UserNickname + "</div>");
+                    $("#ratings-content").append("<div style='padding-left: 16px;'><strong>Title:</strong> " + data.Title + "</div>");
+                    $("#ratings-content").append("<div style='padding-left: 16px;'><strong>Rating:</strong> " + data.Rating + " star(s)</div>");
+                    $("#ratings-content").append("<div style='padding-left: 16px;'><strong>Review:</strong> " + data.ReviewText + "</div>");
+                    $("#ratings-content").append("<div style='padding-left: 16px;'><strong>Submitted:</strong> " + data.SubmissionTime + "</div>");
+                });
+
+            }).fail(function (error, textStatus, errorThrown) {
+                alert(error);
+            });
+        });
+        
+    </script>
+}
