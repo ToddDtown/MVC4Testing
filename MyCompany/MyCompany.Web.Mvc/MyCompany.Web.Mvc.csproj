@@ -115,6 +115,7 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductsModel.cs" />
     <Compile Include="Queries\AbstractTurn5Query.cs" />
+    <Compile Include="Queries\IUrlParameter.cs" />
     <Compile Include="Queries\WebBazaarVoiceQuery.cs" />
     <Compile Include="Queries\WebQueryStringParameter.cs" />
     <Compile Include="Queries\WebBaseQuery.cs" />

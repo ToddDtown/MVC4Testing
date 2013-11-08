@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace MyCompany.Web.Mvc.Queries
 {
-    public class WebQueryStringParameters : ICollection
+    public class WebQueryStringParameters : ICollection<IUrlParameter>
     {
-        private Dictionary<string, object> _parameters;
+        private Dictionary<string, IUrlParameter> _parameters;
 
         public WebQueryStringParameters()
         {
-            _parameters = new Dictionary<string, object>();
+            _parameters = new Dictionary<string, IUrlParameter>();
         }
 
         public void Add<T>(WebQueryStringParameter<T> item)
@@ -18,53 +17,71 @@ namespace MyCompany.Web.Mvc.Queries
             _parameters.Add("[" + item.PropertyName + "]", item);
         }
 
-        public void Remove(string key)
+        public void Add(IUrlParameter item)
         {
-            _parameters.Remove(key);
+            _parameters.Add(item.PropertyName, item);
         }
 
-        public Dictionary<string, object> ParameterList()
-        {
-            return _parameters;
-        }
-
-        public object this[string name]
+        public IUrlParameter this[string name]
         {
             get
             {
-                return name.StartsWith("[") ? this._parameters[name] : this._parameters[GetKey(name)];
-            }
-        }
+                IUrlParameter item = null;
 
-        public void CopyTo(Array array, int index)
-        {
-            
+                var key = GetKey(name);
+                if (_parameters.ContainsKey(key))
+                    item = _parameters[key];
+
+                return item;
+            }
         }
 
         public int Count
         {
             get { return _parameters.Count; }
         }
-
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
-
-        public object SyncRoot
-        {
-            get { return null; }
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return null;
-        }
-
+        
         private static string GetKey(string parameterName)
         {
             return "[" + parameterName + "]";
         }
 
+        public void Clear()
+        {
+            _parameters.Clear();
+        }
+
+        public bool Contains(IUrlParameter item)
+        {
+            return _parameters.ContainsKey(item.PropertyName);
+        }
+
+        public void CopyTo(IUrlParameter[] array, int arrayIndex)
+        {
+            
+        }
+
+        public bool IsReadOnly
+        {
+            get { return false; }
+        }
+
+        public bool Remove(IUrlParameter item)
+        {
+            return _parameters.Remove(item.PropertyName);
+        }
+
+        IEnumerator<IUrlParameter> IEnumerable<IUrlParameter>.GetEnumerator()
+        {
+            return _parameters.Values.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            foreach (var parameter in this)
+            {
+                yield return parameter;
+            }
+        }
     }
 }

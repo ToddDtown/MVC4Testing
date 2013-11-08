@@ -39,27 +39,17 @@ namespace MyCompany.Web.Mvc.Queries
             output.Append(_basePath);
             output.Append(UriTemplate);
 
-            object propName = null;
-            object propValue = null;
-            foreach (var parameter in Parameters.ParameterList())
+            var templateArray = UriTemplate.Split('[');
+            for (var i = 0; i <= templateArray.Length - 1; i++)
             {
-                if (parameter.Value is WebQueryStringParameter<string>)
-                {
-                    propName = ((WebQueryStringParameter<string>)parameter.Value).PropertyName;
-                    propValue = ((WebQueryStringParameter<string>)parameter.Value).Value;
-                }
-                else if (parameter.Value is WebQueryStringParameter<int>)
-                {
-                    propName = ((WebQueryStringParameter<int>)parameter.Value).PropertyName;
-                    propValue = ((WebQueryStringParameter<int>)parameter.Value).Value;
-                }
-                else if (parameter.Value is WebQueryStringParameter<bool>)
-                {
-                    propName = ((WebQueryStringParameter<bool>)parameter.Value).PropertyName;
-                    propValue = ((WebQueryStringParameter<bool>)parameter.Value).Value;
-                }
+                if (templateArray[i].Contains("?")) continue;
 
-                output.Replace(parameter.Key, ("&" + propName + "=" + propValue));
+                var parameter = Parameters[templateArray[i].Substring(0, templateArray[i].Length - 1)];
+
+                if (parameter != null)
+                {
+                    output.Replace("[" + parameter.PropertyName + "]", ("&" + parameter.PropertyName + "=" + parameter.GetValue));
+                }
             }
             output.Replace("?&", "?");
 
