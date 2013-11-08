@@ -43,7 +43,9 @@ namespace MyCompany.Web.Mvc.REST.BazaarVoice
             var uri = new Uri(bazaarVoiceQuery.ToString());
             var response = _downloader.GetResponse(uri);
 
-            _couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddSeconds(30));
+            // For dev testing
+            //_couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddSeconds(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"]))));
+            _couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
 
             return response.ResponseString;
         }
