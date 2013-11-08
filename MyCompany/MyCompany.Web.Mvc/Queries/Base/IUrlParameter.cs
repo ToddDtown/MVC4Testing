@@ -1,4 +1,4 @@
-﻿namespace MyCompany.Web.Mvc.Queries
+﻿namespace MyCompany.Web.Mvc.Queries.Base
 {
     public interface IUrlParameter
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace MyCompany.Web.Mvc.Queries
+namespace MyCompany.Web.Mvc.Queries.Base
 {
     public class WebQueryStringParameters : ICollection<IUrlParameter>
     {

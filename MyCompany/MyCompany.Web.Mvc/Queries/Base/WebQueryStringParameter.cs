@@ -1,4 +1,4 @@
-﻿namespace MyCompany.Web.Mvc.Queries
+﻿namespace MyCompany.Web.Mvc.Queries.Base
 {
     public class WebQueryStringParameter<T> : IUrlParameter
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace MyCompany.Web.Mvc.Queries
+namespace MyCompany.Web.Mvc.Queries.Base
 {
     public abstract class WebBaseQuery
     {

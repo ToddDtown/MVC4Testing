@@ -1,4 +1,6 @@
-﻿namespace MyCompany.Web.Mvc.Queries
+﻿using MyCompany.Web.Mvc.Queries.Base;
+
+namespace MyCompany.Web.Mvc.Queries
 {
     public class WebHomePageQuery : AbstractTurn5Query
     {

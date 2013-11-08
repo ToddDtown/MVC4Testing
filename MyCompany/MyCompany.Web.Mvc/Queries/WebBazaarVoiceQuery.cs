@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using MyCompany.Web.Mvc.Queries.Base;
 
 namespace MyCompany.Web.Mvc.Queries
 {
