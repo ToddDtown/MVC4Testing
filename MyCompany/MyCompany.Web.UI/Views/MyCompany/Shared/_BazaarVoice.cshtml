@@ -1,0 +1,60 @@
+﻿@model string
+
+<h5>Bazaar Voice Ratings for - @Model</h5>
+<div id="bv-content"></div>
+
+<!--
+    BazaarVoice API Requests for Ratings and Reviews
+    stg.api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=kuy3zj9pr3n7i0wxajrzj04xo&Filter=ProductId:1000001&Filter=HasComments:true&Sort=Rating:desc&Limit=10
+    api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=iff2ag5avxj8t8mi0d98gkce5&Filter=ProductId:headlight-black-proj-2010&Include=Products&Stats=Reviews&Limit=1
+    
+    Different Products
+    api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=iff2ag5avxj8t8mi0d98gkce5&Filter=ProductId:headlight-black-proj-2010&Include=Products&Stats=Reviews&Limit=1
+    api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=iff2ag5avxj8t8mi0d98gkce5&Filter=ProductId:sct-4bank-custom-9498gt&Include=Products&Stats=Reviews&Limit=1
+    api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=iff2ag5avxj8t8mi0d98gkce5&Filter=ProductId:cdc-dynamite-sticks&Include=Products&Stats=Reviews&Limit=1
+    api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=iff2ag5avxj8t8mi0d98gkce5&Filter=ProductId:steeda-adjustable-clutch-kit-8395&Include=Products&Stats=Reviews&Limit=1
+    api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=iff2ag5avxj8t8mi0d98gkce5&Filter=ProductId:mustang-smoked-headlights-8793&Include=Products&Stats=Reviews&Limit=1
+
+    stg.api.bazaarvoice.com/data/reviews.json?apiversion=5.4&passkey=whu4rjbhv5ee35t8q7uezefs&Filter=ProductId:headlight-black-proj-2010&HasComments:true&Sort=Rating:desc&Limit=10
+-->
+
+<script type="text/javascript">
+    
+    @Html.JavaScriptVariable("productId", @Model)
+    
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/ajax/getratings?productid=" + productId
+    }).done(function (bvResponse, textStatus, jqXHR) {
+
+        $("#bv-content").html("");
+
+        var count = 0;
+        var totalRating = 0;
+        var avgRating = 0;
+        $.each(bvResponse.Results, function (index, data) {
+            totalRating += data.Rating;
+            count++;
+        });
+        avgRating = totalRating / count;
+
+        $("#bv-content").append("Average Rating: ");
+        jQuery("<img/>", {
+            src: "http://americanmuscle.ugc.bazaarvoice.com/0065-en_us/" + avgRating + "/5/ratingLarge.gif",
+            alt: "Product Rating"
+        }).appendTo('#bv-content');
+
+        $.each(bvResponse.Results, function (index, data) {
+            $("#bv-content").append("<div><strong>Nickname:</strong> " + data.UserNickname + "</div>");
+            $("#bv-content").append("<div style='padding-left: 16px;'><strong>Title:</strong> " + data.Title + "</div>");
+            $("#bv-content").append("<div style='padding-left: 16px;'><strong>Rating:</strong> <img alt='' src=''/>" + data.Rating + "</div>");
+            $("#bv-content").append("<div style='padding-left: 16px;'><strong>Review:</strong> " + data.ReviewText + "</div>");
+            $("#bv-content").append("<div style='padding-left: 16px;'><strong>Submitted:</strong> " + data.SubmissionTime + "</div>");
+        });
+
+    }).fail(function (error, textStatus, errorThrown) {
+
+    });
+    
+</script>

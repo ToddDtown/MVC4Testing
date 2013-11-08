@@ -22,9 +22,10 @@ namespace MyCompany.Web.Mvc
             var container = new UnityContainer();
 
             container.RegisterType<ITestService, TestService>();
-            container.RegisterType<IDownloader, HttpDownloader>();
-            container.RegisterType<IBazaarVoiceManager, BazaarVoiceManager>();
-            container.RegisterType<ICouchbaseClient, CouchbaseClient>(new InjectionConstructor());
+            
+            //container.RegisterType<IDownloader, HttpDownloader>();
+            //container.RegisterType<IBazaarVoiceManager, BazaarVoiceManager>();
+            //container.RegisterType<ICouchbaseClient, CouchbaseClient>(new InjectionConstructor());
 
             //container.RegisterType<IController, StoreController>("Store");
 

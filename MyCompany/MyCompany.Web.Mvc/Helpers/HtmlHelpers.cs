@@ -59,5 +59,14 @@ namespace MyCompany.Web.Mvc.Helpers
 
             return new MvcHtmlString(string.Format("var {0} = {1};", varName, varValue));
         }
+
+        public static MvcHtmlString Image(this HtmlHelper helper, string src, string altText)
+        {
+            var tb = new TagBuilder("img");
+            tb.MergeAttribute("src", src);
+            tb.MergeAttribute("alt", altText);
+
+            return new MvcHtmlString(tb.ToString());
+        }
     }
 }

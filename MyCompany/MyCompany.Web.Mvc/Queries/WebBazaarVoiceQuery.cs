@@ -7,7 +7,7 @@ namespace MyCompany.Web.Mvc.Queries
     {
         public override string UriTemplate
         {
-            get { return "/data/reviews.json?[apiversion][passkey][filter][productid][hascomments][sort][limit]"; }
+            get { return "/data/reviews.json?[apiversion][passkey][filter][hascomments][sort][limit]"; }
         }
 
         public WebBazaarVoiceQuery()
@@ -17,7 +17,6 @@ namespace MyCompany.Web.Mvc.Queries
             _apiVersion = new WebQueryStringParameter<string>("apiversion");
             _passKey = new WebQueryStringParameter<string>("passkey");
             _filter = new WebQueryStringParameter<string>("filter");
-            _productId = new WebQueryStringParameter<string>("productid");
             _hasComments = new WebQueryStringParameter<bool>("hascomments");
             _sort = new WebQueryStringParameter<string>("sort");
             _limit = new WebQueryStringParameter<int>("limit");
@@ -25,7 +24,6 @@ namespace MyCompany.Web.Mvc.Queries
             Parameters.Add(_apiVersion);
             Parameters.Add(_passKey);
             Parameters.Add(_filter);
-            Parameters.Add(_productId);
             Parameters.Add(_hasComments);
             Parameters.Add(_sort);
             Parameters.Add(_limit);
@@ -50,13 +48,6 @@ namespace MyCompany.Web.Mvc.Queries
         {
             get { return _filter.Value; }
             set { _filter.Value = value; }
-        }
-
-        private WebQueryStringParameter<string> _productId;
-        public string ProductId
-        {
-            get { return _productId.Value; }
-            set { _productId.Value = value; }
         }
 
         private WebQueryStringParameter<bool> _hasComments;

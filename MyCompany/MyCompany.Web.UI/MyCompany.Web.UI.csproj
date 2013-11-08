@@ -173,7 +173,7 @@
     <Content Include="Views\MyCompany\UserInfoTest\UserInfoTest.cshtml" />
     <Content Include="Views\MyCompany\Products\Products.cshtml" />
     <Content Include="Views\MyCompany\JQueryMobile\JQueryMobile.cshtml" />
-    <Content Include="Views\MyCompany\BazaarVoice\BazaarVoice.cshtml" />
+    <Content Include="Views\MyCompany\Shared\_BazaarVoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

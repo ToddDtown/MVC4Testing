@@ -2,6 +2,6 @@
 {
     public interface IBazaarVoiceManager
     {
-        string GetRatings(string productId, int limit = 10, string sort = "Rating:desc");
+        string GetRatings(string productId);
     }
 }

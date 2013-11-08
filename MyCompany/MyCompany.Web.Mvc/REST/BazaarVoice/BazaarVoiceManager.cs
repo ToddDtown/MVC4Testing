@@ -13,19 +13,16 @@ namespace MyCompany.Web.Mvc.REST.BazaarVoice
         private ICouchbaseClient _couchbaseClient;
         public string Response { get; set; }
 
-        public BazaarVoiceManager(IDownloader downloader, ICouchbaseClient couchbaseClient)
+        public BazaarVoiceManager()
         {
-            //if (_downloader == null)
-            //    _downloader = new HttpDownloader();
+            if (_downloader == null)
+                _downloader = new HttpDownloader();
 
-            //if (_couchbaseClient == null) 
-            //    _couchbaseClient = new CouchbaseClient();
-
-            _downloader = downloader;
-            _couchbaseClient = couchbaseClient;
+            if (_couchbaseClient == null)
+                _couchbaseClient = new CouchbaseClient();
         }
 
-        public string GetRatings(string productId, int limit = 10, string sort = "Rating:desc")
+        public string GetRatings(string productId)
         {
             var cachedRating = CachedRating(productId);
 
@@ -34,20 +31,19 @@ namespace MyCompany.Web.Mvc.REST.BazaarVoice
             
             var bazaarVoiceQuery = new WebBazaarVoiceQuery
             {
-                ApiVersion = "5.4",
+                ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
                 PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
-                Filter = string.Empty,
-                ProductId = productId,
+                Filter = "productid:" + productId,
                 HasComments = true,
-                Sort = sort,
-                Limit = limit
+                Sort = ConfigurationManager.AppSettings["BazaarVoiceResultSort"],
+                Limit = Convert.ToInt32(ConfigurationManager.AppSettings["BazaarVoiceResultLimit"])
             };
 
             var uri = new Uri(bazaarVoiceQuery.ToString());
             var response = _downloader.GetResponse(uri);
 
             // For dev testing
-            //_couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddSeconds(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"]))));
+            //_couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddSeconds(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
             _couchbaseClient.Store(StoreMode.Set, productId, response, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
 
             return response.ResponseString;

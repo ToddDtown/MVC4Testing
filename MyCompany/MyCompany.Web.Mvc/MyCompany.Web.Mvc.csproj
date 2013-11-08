@@ -97,16 +97,13 @@
     <Compile Include="Caching\CacheManager.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\BazaarVoiceController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\JQueryMobileController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UserInfoTestController.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\BazaarVoiceModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
-    <Compile Include="Models\ModelBuilders\BazaarVoiceModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\IModelFactory.cs" />
     <Compile Include="Models\ModelBuilders\ModelFactory.cs" />

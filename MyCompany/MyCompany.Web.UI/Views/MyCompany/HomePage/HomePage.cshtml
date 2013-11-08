@@ -6,24 +6,18 @@
 
 @section Head 
 {
-
+    
 }
 
-<h1>FB SERVER TEST 4</h1>
 
-<h1>HELLO AGAIN</h1>
 
-@Html.Partial("_Header")
+<h1>Home Page</h1>
 
-<div style="color: red">
-    @Html.Partial("MyPartial")
-</div>
+@Html.Partial("_BazaarVoice", Model.SKU)
 
-@Html.Link("Product", "/product", null)
+
 
 @section StartupScripts
 {
-    <script language="javascript">
-        $("#viewer").RenderViewer('@Model.SKU');
-    </script>
+
 }
