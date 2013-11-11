@@ -3,6 +3,6 @@
     public interface IUrlParameter
     {
         string PropertyName { get; set; }
-        string GetValue { get; }
+        string PropertyValue { get; }
     }
 }

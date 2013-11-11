@@ -8,5 +8,10 @@ namespace MyCompany.Web.Mvc.Models.ModelBuilders
         {
             return HomeModelBuilder.CreateModel();
         }
+
+        public BazaarVoiceModel CreateBazaarVoiceModel()
+        {
+            return BazaarVoiceModelBuilder.CreateModel();
+        }
     }
 }

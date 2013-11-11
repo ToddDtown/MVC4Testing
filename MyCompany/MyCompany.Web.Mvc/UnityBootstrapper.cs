@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Couchbase;
 using Microsoft.Practices.Unity;
-using MyCompany.Web.Mvc.REST.BazaarVoice;
 using MyCompany.Web.Mvc.REST.Downloaders;
 using MyCompany.WebServices;
 using Unity.Mvc3;
@@ -24,11 +23,6 @@ namespace MyCompany.Web.Mvc
                 .RegisterType<IDownloader, HttpDownloader>()
                 .RegisterInstance<ICouchbaseClient>(new CouchbaseClient());
             
-            container.RegisterType<IBazaarVoiceManager, BazaarVoiceManager>(
-                new InjectionConstructor(
-                    container.Resolve<IDownloader>(), 
-                    container.Resolve<ICouchbaseClient>()));
-
             return container;
         }
     }

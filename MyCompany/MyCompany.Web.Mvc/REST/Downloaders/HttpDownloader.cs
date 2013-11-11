@@ -31,7 +31,6 @@ namespace MyCompany.Web.Mvc.REST.Downloaders
             DownloaderResponse downloaderResponse;
             try
             {
-
                 httpWebResponse = (HttpWebResponse)request.GetResponse();
                 var buffer = new byte[4096];
                 byte[] responseBytes;

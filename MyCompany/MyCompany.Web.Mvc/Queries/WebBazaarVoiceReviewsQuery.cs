@@ -3,14 +3,14 @@ using MyCompany.Web.Mvc.Queries.Base;
 
 namespace MyCompany.Web.Mvc.Queries
 {
-    public class WebBazaarVoiceQuery : AbstractTurn5Query
+    public class WebBazaarVoiceReviewsQuery : AbstractTurn5Query
     {
         public override string UriTemplate
         {
             get { return "/data/reviews.json?[apiversion][passkey][filter][hascomments][sort][limit]"; }
         }
 
-        public WebBazaarVoiceQuery()
+        public WebBazaarVoiceReviewsQuery()
         {
             BasePath = ConfigurationManager.AppSettings["BazaarVoiceBasePath"];
 
@@ -19,7 +19,7 @@ namespace MyCompany.Web.Mvc.Queries
             _filter = new WebQueryStringParameter<string>("filter");
             _hasComments = new WebQueryStringParameter<bool>("hascomments");
             _sort = new WebQueryStringParameter<string>("sort");
-            _limit = new WebQueryStringParameter<int>("limit");
+            _limit = new WebQueryStringParameter<int?>("limit");
 
             Parameters.Add(_apiVersion);
             Parameters.Add(_passKey);
@@ -64,8 +64,8 @@ namespace MyCompany.Web.Mvc.Queries
             set { _sort.Value = value; }
         }
 
-        private WebQueryStringParameter<int> _limit;
-        public int Limit
+        private WebQueryStringParameter<int?> _limit;
+        public int? Limit
         {
             get { return _limit.Value; }
             set { _limit.Value = value; }

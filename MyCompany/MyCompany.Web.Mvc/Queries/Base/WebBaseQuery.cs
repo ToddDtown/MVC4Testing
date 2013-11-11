@@ -46,10 +46,10 @@ namespace MyCompany.Web.Mvc.Queries.Base
 
                 var parameter = Parameters[templateArray[i].Substring(0, templateArray[i].Length - 1)];
 
-                if (parameter != null)
-                {
-                    output.Replace("[" + parameter.PropertyName + "]", ("&" + parameter.PropertyName + "=" + parameter.GetValue));
-                }
+                if (parameter != null && parameter.PropertyValue != null)
+                    output.Replace("[" + parameter.PropertyName + "]", ("&" + parameter.PropertyName + "=" + parameter.PropertyValue));
+                else
+                    output.Replace("[" + parameter.PropertyName + "]", string.Empty);
             }
             output.Replace("?&", "?");
 

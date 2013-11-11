@@ -15,11 +15,10 @@
             PropertyName = propertyName;
         }
 
-        public string GetValue
+        public string PropertyValue
         {
-            get
-            {
-                return Value.ToString();
+            get {
+                return Value != null ? Value.ToString() : null;
             }
         }
     }

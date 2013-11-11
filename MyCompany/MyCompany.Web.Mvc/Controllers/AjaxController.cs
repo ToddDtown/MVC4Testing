@@ -1,36 +1,76 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Configuration;
+using System.Web.Mvc;
 using Couchbase;
-using MyCompany.Web.Mvc.Caching;
-using MyCompany.Web.Mvc.REST.BazaarVoice;
+using Enyim.Caching.Memcached;
+using MyCompany.Web.Mvc.Queries;
 using MyCompany.Web.Mvc.REST.Downloaders;
 
 namespace MyCompany.Web.Mvc.Controllers
 {
     public class AjaxController : BaseController
     {
-        private readonly IBazaarVoiceManager _bazaarVoiceManager;
+        private readonly IDownloader _downloader;
+        private readonly ICouchbaseClient _couchbaseClient;
 
-        public AjaxController(IBazaarVoiceManager bazaarVoiceManager)
+        public AjaxController()
         {
-            //if (_bazaarVoiceManager == null)
-            //    _bazaarVoiceManager = new BazaarVoiceManager(downloader, couchbaseClient);
+            if (_downloader == null)
+                _downloader = new HttpDownloader();
 
-            _bazaarVoiceManager = bazaarVoiceManager;
+            if (_couchbaseClient == null)
+                _couchbaseClient = new CouchbaseClient();
         }
 
-        public JsonResult Get(string userkey)
+        public ActionResult GetReviews(string productId)
         {
-            var userInfo = CouchbaseManager.GetJson(userkey);
-            var view = CouchbaseManager.GetView();
+            const string cachePrefix = "Reviews_";
 
-            return Json(userInfo);
+            var cachedRating = _couchbaseClient != null ? _couchbaseClient.Get(cachePrefix + productId) : null;
+
+            if (cachedRating != null)
+                return Content(((DownloaderResponse)cachedRating).ResponseString);
+
+            var bazaarVoiceQuery = new WebBazaarVoiceReviewsQuery
+            {
+                ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
+                PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
+                Filter = "productid:" + productId,
+                HasComments = true,
+                Sort = ConfigurationManager.AppSettings["BazaarVoiceResultSort"],
+                Limit = Convert.ToInt32(ConfigurationManager.AppSettings["BazaarVoiceResultLimit"])
+            };
+
+            return Content(RequestReviews(productId, cachePrefix, bazaarVoiceQuery));
         }
 
-        public ActionResult GetRatings(string productId)
+        public ActionResult GetReview(string reviewId)
         {
-            var response = _bazaarVoiceManager.GetRatings(productId);
+            const string cachePrefix = "Review_";
 
-            return Content(response, "application/json");
+            var cachedRating = _couchbaseClient != null ? _couchbaseClient.Get(cachePrefix + reviewId) : null;
+
+            if (cachedRating != null)
+                return Content(((DownloaderResponse)cachedRating).ResponseString);
+
+            var bazaarVoiceQuery = new WebBazaarVoiceReviewsQuery
+            {
+                ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
+                PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
+                Filter = "id:" + reviewId
+            };
+
+            return Content(RequestReviews(reviewId, cachePrefix, bazaarVoiceQuery));
+        }
+
+        private string RequestReviews(string id, string cachePrefix, WebBazaarVoiceReviewsQuery query)
+        {
+            var uri = new Uri(query.ToString());
+            var response = _downloader.GetResponse(uri);
+
+            _couchbaseClient.Store(StoreMode.Set, cachePrefix + id, response, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
+
+            return response.ResponseString;
         }
     }
 }
