@@ -46,7 +46,9 @@ namespace MyCompany.Web.Mvc.Queries.Base
 
                 var parameter = Parameters[templateArray[i].Substring(0, templateArray[i].Length - 1)];
 
-                if (parameter != null && parameter.PropertyValue != null)
+                if (parameter == null) continue;
+
+                if (parameter.PropertyValue != null)
                     output.Replace("[" + parameter.PropertyName + "]", ("&" + parameter.PropertyName + "=" + parameter.PropertyValue));
                 else
                     output.Replace("[" + parameter.PropertyName + "]", string.Empty);
