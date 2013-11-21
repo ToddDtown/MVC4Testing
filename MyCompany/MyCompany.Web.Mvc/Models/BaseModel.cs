@@ -1,4 +1,4 @@
-﻿namespace MyCompany.BusinessModel.Models
+﻿namespace MyCompany.Mvc.Models
 {
     public abstract class BaseModel
     {

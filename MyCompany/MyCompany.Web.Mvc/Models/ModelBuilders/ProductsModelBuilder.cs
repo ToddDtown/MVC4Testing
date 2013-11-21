@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using MyCompany.BusinessModel.Models;
+using MyCompany.Mvc.Models;
 
 namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {

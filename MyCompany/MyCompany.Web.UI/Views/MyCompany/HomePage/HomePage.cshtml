@@ -1,4 +1,4 @@
-﻿@model MyCompany.BusinessModel.Models.HomeModel
+﻿@model MyCompany.Mvc.Models.HomeModel
 
 @{
     ViewBag.Title = "HomePage";
@@ -9,13 +9,9 @@
     
 }
 
-
-
 <h1>Home Page</h1>
 
 @Html.Partial("_BazaarVoice", Model.SKU)
-
-
 
 @section StartupScripts
 {

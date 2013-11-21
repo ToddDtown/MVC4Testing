@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyCompany.BusinessModel.Models;
+using MyCompany.Mvc.Models;
 
 namespace MyCompany.Web.Mvc.Models.ModelBuilders 
 {
