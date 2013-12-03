@@ -99,10 +99,6 @@
       <Project>{22e1fcf9-c4a7-4bf0-8c9f-e3ea74301f64}</Project>
       <Name>MyCompany.Web.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj">
-      <Project>{8e0df0fa-9704-4cb0-99bc-164e6639471f}</Project>
-      <Name>MyCompany.Web.WebServices</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

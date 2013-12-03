@@ -189,10 +189,6 @@
       <Project>{e57e1b6e-3327-4195-ba64-8fde9caa4d02}</Project>
       <Name>MyCompany.Web.Mvc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj">
-      <Project>{8e0df0fa-9704-4cb0-99bc-164e6639471f}</Project>
-      <Name>MyCompany.Web.WebServices</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

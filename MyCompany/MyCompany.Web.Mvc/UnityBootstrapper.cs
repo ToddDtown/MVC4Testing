@@ -2,7 +2,6 @@
 using Couchbase;
 using Microsoft.Practices.Unity;
 using MyCompany.Web.Mvc.REST.Downloaders;
-using MyCompany.WebServices;
 using Unity.Mvc3;
 
 namespace MyCompany.Web.Mvc
@@ -19,7 +18,7 @@ namespace MyCompany.Web.Mvc
         private static IUnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer()
-                .RegisterType<ITestService, TestService>()
+                //.RegisterType<ITestService, TestService>()
                 .RegisterType<IDownloader, HttpDownloader>()
                 .RegisterInstance<ICouchbaseClient>(new CouchbaseClient());
             

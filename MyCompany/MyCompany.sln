@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.UI", "MyCompa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.UnitTests", "MyCompany.Web.UnitTests\MyCompany.Web.UnitTests.csproj", "{25AA96BB-0304-4B72-BAE7-02C6F1D65402}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.WebServices", "MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj", "{8E0DF0FA-9704-4CB0-99BC-164E6639471F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.WebServices", "MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj", "{DFEACD1D-81C6-4E4C-A335-E72896F69962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,14 +53,14 @@ Global
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug (MVC Only)|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug (MVC Only)|Any CPU.Build.0 = Debug (MVC Only)|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug (UI Only)|Any CPU.ActiveCfg = Debug (UI Only)|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug (UI Only)|Any CPU.Build.0 = Debug (UI Only)|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E0DF0FA-9704-4CB0-99BC-164E6639471F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (MVC Only)|Any CPU.Build.0 = Debug|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (UI Only)|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (UI Only)|Any CPU.Build.0 = Debug|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

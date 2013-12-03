@@ -143,12 +143,6 @@
     <Compile Include="ViewEngine\ThemeableVirtualPathProviderViewEngine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj">
-      <Project>{8e0df0fa-9704-4cb0-99bc-164e6639471f}</Project>
-      <Name>MyCompany.Web.WebServices</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
