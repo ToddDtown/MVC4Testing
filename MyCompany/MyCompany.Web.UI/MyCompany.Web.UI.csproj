@@ -179,7 +179,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resources\images\" />
-    <Folder Include="Views\HomePage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
