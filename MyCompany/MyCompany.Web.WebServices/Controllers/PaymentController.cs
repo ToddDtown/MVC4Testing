@@ -2,9 +2,19 @@
 
 namespace MyCompany.Web.WebServices.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class PaymentController : BaseController
     {
+        public ActionResult DoCrypto()
+        {
+            if (Request.IsSecureConnection) {
+
+
+            }
+
+            return Content("");
+        }
+
         public ActionResult GetToken()
         {
             return Content("");
