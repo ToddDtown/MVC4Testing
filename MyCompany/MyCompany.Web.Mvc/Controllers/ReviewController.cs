@@ -18,13 +18,5 @@ namespace MyCompany.Web.Mvc.Controllers
             if (_couchbaseClient == null) 
                 _couchbaseClient = new CouchbaseClient();
         }
-
-        [HttpPost]
-        public ActionResult AddReview(BazaarVoiceModel bazaarVoiceModel)
-        {
-            //var bvModel = _bazaarVoiceManager.AddReview(bazaarVoiceModel);
-
-            return View("Review", null);
-        }
     }
 }

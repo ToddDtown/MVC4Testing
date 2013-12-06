@@ -11,8 +11,9 @@
 
 <h1>Home Page</h1>
 
+@*@Html.Partial("_BazaarVoice", Model.SKU)*@
 
-@Html.Partial("_BazaarVoice", Model.SKU)
+@Html.Action("GetReviews", new { productId = Model.SKU })
 
 @section StartupScripts
 {

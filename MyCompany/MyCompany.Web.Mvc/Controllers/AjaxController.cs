@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using Couchbase;
 using Enyim.Caching.Memcached;
+using MyCompany.Web.Mvc.Models;
 using MyCompany.Web.Mvc.Queries;
 using MyCompany.Web.Mvc.REST.Downloaders;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MyCompany.Web.Mvc.Controllers
 {
@@ -44,31 +49,33 @@ namespace MyCompany.Web.Mvc.Controllers
             return Content(RequestReviews(productId, cachePrefix, bazaarVoiceQuery));
         }
 
-        public ActionResult GetReview(string reviewId)
-        {
-            const string cachePrefix = "Review_";
+        //public ActionResult GetReview(string reviewId)
+        //{
+        //    const string cachePrefix = "Review_";
 
-            var cachedRating = _couchbaseClient != null ? _couchbaseClient.Get(cachePrefix + reviewId) : null;
+        //    var cachedRating = _couchbaseClient != null ? _couchbaseClient.Get(cachePrefix + reviewId) : null;
 
-            if (cachedRating != null)
-                return Content(((DownloaderResponse)cachedRating).ResponseString);
+        //    if (cachedRating != null)
+        //        return Content(((DownloaderResponse)cachedRating).ResponseString);
 
-            var bazaarVoiceQuery = new WebBazaarVoiceReviewsQuery
-            {
-                ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
-                PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
-                Filter = "id:" + reviewId
-            };
+        //    var bazaarVoiceQuery = new WebBazaarVoiceReviewsQuery
+        //    {
+        //        ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
+        //        PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
+        //        Filter = "id:" + reviewId
+        //    };
 
-            return Content(RequestReviews(reviewId, cachePrefix, bazaarVoiceQuery));
-        }
+        //    return Content(RequestReviews(reviewId, cachePrefix, bazaarVoiceQuery));
+        //}
 
         private string RequestReviews(string id, string cachePrefix, WebBazaarVoiceReviewsQuery query)
         {
             var uri = new Uri(query.ToString());
             var response = _downloader.GetResponse(uri);
 
-            _couchbaseClient.Store(StoreMode.Set, cachePrefix + id, response, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
+            var reviews = JsonConvert.DeserializeObject<BazaarVoiceReviews>(response.ResponseString);
+
+            //_couchbaseClient.Store(StoreMode.Set, cachePrefix + id, response, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
 
             return response.ResponseString;
         }

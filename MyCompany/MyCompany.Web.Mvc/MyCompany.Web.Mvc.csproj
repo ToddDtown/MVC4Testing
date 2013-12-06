@@ -105,9 +105,8 @@
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\UserInfoTestController.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\BazaarVoiceModel.cs" />
+    <Compile Include="Models\BazaarVoiceReviews.cs" />
     <Compile Include="Models\HomeModel.cs" />
-    <Compile Include="Models\ModelBuilders\BazaarVoiceModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\IModelFactory.cs" />
     <Compile Include="Models\ModelBuilders\ModelFactory.cs" />
