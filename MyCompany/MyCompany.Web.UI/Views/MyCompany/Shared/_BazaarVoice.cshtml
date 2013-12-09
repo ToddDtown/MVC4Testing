@@ -1,6 +1,17 @@
 ﻿@model MyCompany.Web.Mvc.Models.BazaarVoiceReviews
 
 <div id="bv-content">
+    @if (Model.Product != null)
+    {
+        <div>
+            Brand ID: @Model.Product.BrandId < br/ >
+            Brand Name: @Model.Product.BrandName < br/ >
+            Category ID: @Model.Product.CategoryId < br/ >
+            ImageUrl: @Model.Product.ImageUrl < br/ >
+            Product Page Url: @Model.Product.ProductPageUrl < br/ >
+            Name: @Model.Product.Name < br/ >
+        </div>
+    }
     <ul>
         @foreach (var review in Model.Results)
         {

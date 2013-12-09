@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace MyCompany.Web.Mvc.Models
 {
@@ -7,19 +6,8 @@ namespace MyCompany.Web.Mvc.Models
     {
         public List<BazaarVoiceReview> Results { get; set; }
         public int Limit { get; set; }
-        //public Includes Includes { get; set; }
+        public Product Product { get; set; }        
     }
-
-    //public class Includes
-    //{
-    //    public Products Products { get; set; }
-    //}
-
-    //public class Products
-    //{
-    //    [JsonProperty(PropertyName = "headlight-black-proj-2010")]
-    //    public object Child { get; set; }
-    //}
 
     public class BazaarVoiceReview
     {
@@ -34,5 +22,15 @@ namespace MyCompany.Web.Mvc.Models
         public string SubmissionTime { get; set; }
         public string LastModificationTime { get; set; }
         public string ModerationStatus { get; set; }
+    }
+
+    public class Product
+    {
+        public string BrandId { get; set; }
+        public string BrandName { get; set; }
+        public string ProductPageUrl { get; set; }
+        public string ImageUrl { get; set; }
+        public string Name { get; set; }
+        public string CategoryId { get; set; }
     }
 }

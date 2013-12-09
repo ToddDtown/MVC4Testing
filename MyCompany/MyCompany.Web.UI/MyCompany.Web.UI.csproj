@@ -176,6 +176,7 @@
     <Content Include="Views\MyCompany\Shared\_BazaarVoice_AJAX.cshtml" />
     <Content Include="Views\MyCompany\Reviews\Review.cshtml" />
     <Content Include="Views\MyCompany\Shared\_BazaarVoice.cshtml" />
+    <Content Include="Views\MyCompany\PaymentPage\PaymentPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
