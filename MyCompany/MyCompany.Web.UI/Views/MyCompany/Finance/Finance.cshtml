@@ -43,14 +43,22 @@
         @Html.TextBoxFor(m => m.Zip)
     </div>
     
-    <span class="sub-header">Card Information:</span>
+    <br/><h3>Card Information:</h3>
     <div class="form-elements">
-        @Html.LabelFor(m => m.CreditCardNumber)
+        @Html.LabelFor(m => m.CreditCardNumber, "Credit Card Number")
         @Html.TextBoxFor(m => m.CreditCardNumber)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.CreditCardExpiration)
+        @Html.TextBoxFor(m => m.CreditCardExpiration)
     </div>
     <div class="form-elements">
         @Html.LabelFor(m => m.CreditCardType)
         @Html.DropDownListFor(m => m.CreditCardType, Model.CreditCardTypes)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount)
     </div>
     
     <div class="form-elements">

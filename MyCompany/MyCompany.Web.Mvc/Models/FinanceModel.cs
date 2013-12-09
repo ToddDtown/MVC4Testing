@@ -18,6 +18,7 @@ namespace MyCompany.Web.Mvc.Models
         public DateTime CreditCardExpiration { get; set; }
         public CardType CreditCardType { get; set; }
         public IEnumerable<SelectListItem> CreditCardTypes { get; set; }
+        public decimal Amount { get; set; }
     }
 
     public enum CardType

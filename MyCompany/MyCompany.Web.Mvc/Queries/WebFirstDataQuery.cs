@@ -7,23 +7,25 @@ namespace MyCompany.Web.Mvc.Queries
     {
         public override string UriTemplate
         {
-            get { return "/v12/?[]"; }
+            get { return "/v12/?[amount][authorization_num][transaction_type][transaction_tag]"; }
         }
 
         public WebFirstDataQuery()
         {
+            //api.globalgatewaye4.firstdata.com/transaction?amount=15.75&authorization_num=ET4653&transaction_tag=902006933&transaction_type=34/902010341
+
             BasePath = ConfigurationManager.AppSettings["FirstDataBasePath"];
 
-            _apiVersion = new WebQueryStringParameter<string>("apiversion");
+            _amount = new WebQueryStringParameter<decimal>("amount");
 
-            Parameters.Add(_apiVersion);
+            Parameters.Add(_amount);
         }
 
-        private WebQueryStringParameter<string> _apiVersion;
-        public string ApiVersion
+        private WebQueryStringParameter<decimal> _amount;
+        public decimal Amount
         {
-            get { return _apiVersion.Value; }
-            set { _apiVersion.Value = value; }
+            get { return _amount.Value; }
+            set { _amount.Value = value; }
         }
     }
 }
