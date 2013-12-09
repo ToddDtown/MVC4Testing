@@ -1,0 +1,64 @@
+﻿@using MyCompany.Web.Mvc.Models
+@model MyCompany.Web.Mvc.Models.FinanceModel
+
+@{
+    ViewBag.Title = "PaymentProvider";
+}
+
+@section Head 
+{
+    
+}
+
+<h1>eCommerce Pay Page</h1>
+
+@using (Html.BeginForm("DoInfo", "Finance", FormMethod.Post, new Dictionary<string, object> {{ "id", "payment-form" }}))
+{
+    <div class="form-elements">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.Address1)
+        @Html.TextBoxFor(m => m.Address1)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.Address2)
+        @Html.TextBoxFor(m => m.Address2)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.State)
+        @Html.TextBoxFor(m => m.State)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.Zip)
+        @Html.TextBoxFor(m => m.Zip)
+    </div>
+    
+    <span class="sub-header">Card Information:</span>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.CreditCardNumber)
+        @Html.TextBoxFor(m => m.CreditCardNumber)
+    </div>
+    <div class="form-elements">
+        @Html.LabelFor(m => m.CreditCardType)
+        @Html.DropDownListFor(m => m.CreditCardType, Model.CreditCardTypes)
+    </div>
+    
+    <div class="form-elements">
+        @Html.SubmitButton("Submit")
+    </div>
+}
+
+@section StartupScripts
+{
+
+}

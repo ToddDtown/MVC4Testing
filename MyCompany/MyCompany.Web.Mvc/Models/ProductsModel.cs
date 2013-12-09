@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace MyCompany.Mvc.Models
+namespace MyCompany.Web.Mvc.Models
 {
     public class ProductsModel
     {

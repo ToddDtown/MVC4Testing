@@ -1,0 +1,33 @@
+﻿#payment-form
+{
+        
+}
+    #payment-form .form-elements {
+        padding: 2px;
+        font-weight: bold;
+        margin: 0;   
+    }
+    #payment-form .form-elements label 
+    {
+        width: 150px;
+        display: inline-block; 
+        vertical-align: top;
+        padding-top: 4px;  
+    }
+    #payment-form .form-elements input[type="text"]
+    {
+        width: 315px; 
+        border: 1px solid #ccc; 
+        -moz-border-radius: 6px; 
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        padding: 0; 
+        line-height: 24px; 
+        height: 28px;
+        text-indent: 2px;     
+    }
+    #payment-form .form-elements .sub-header 
+    {
+        display: inline;
+        font-weight: bold;
+    }

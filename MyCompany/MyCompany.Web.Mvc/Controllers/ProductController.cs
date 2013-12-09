@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using MyCompany.Mvc.Models;
+using MyCompany.Web.Mvc.Models;
 using MyCompany.Web.Mvc.Models.ModelBuilders;
 
 namespace MyCompany.Web.Mvc.Controllers

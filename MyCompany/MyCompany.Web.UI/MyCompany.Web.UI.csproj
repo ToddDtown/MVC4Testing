@@ -124,6 +124,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Resources\css\core.css" />
+    <Content Include="Resources\css\finance.css" />
     <Content Include="Resources\css\homepage.css" />
     <Content Include="Resources\css\products.css" />
     <Content Include="ConfigData\AppSettings.config">
@@ -176,7 +177,7 @@
     <Content Include="Views\MyCompany\Shared\_BazaarVoice_AJAX.cshtml" />
     <Content Include="Views\MyCompany\Reviews\Review.cshtml" />
     <Content Include="Views\MyCompany\Shared\_BazaarVoice.cshtml" />
-    <Content Include="Views\MyCompany\PaymentPage\PaymentPage.cshtml" />
+    <Content Include="Views\MyCompany\Finance\Finance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -189,6 +190,10 @@
     <ProjectReference Include="..\MyCompany.Web.Mvc\MyCompany.Web.Mvc.csproj">
       <Project>{e57e1b6e-3327-4195-ba64-8fde9caa4d02}</Project>
       <Name>MyCompany.Web.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj">
+      <Project>{dfeacd1d-81c6-4e4c-a335-e72896f69962}</Project>
+      <Name>MyCompany.Web.WebServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

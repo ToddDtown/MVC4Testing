@@ -27,7 +27,8 @@ namespace MyCompany.Web.UI
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Resources/css/homepage.css",
                                                                  "~/Resources/css/products.css",
                                                                  "~/Resources/css/viewer.css",
-                                                                 "~/Resources/css/core.css"));
+                                                                 "~/Resources/css/core.css",
+                                                                 "~/Resources/css/finance.css"));
 
             bundles.Add(new StyleBundle("~/Content/jquery-mobile").Include("~/Resources/css/jquery-mobile/jquery.mobile.custom.structure.css",
                                                                            "~/Resources/css/jquery-mobile/jquery.mobile.custom.theme.css"));

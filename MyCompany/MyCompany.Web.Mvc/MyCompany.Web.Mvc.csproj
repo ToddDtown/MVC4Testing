@@ -100,14 +100,15 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\JQueryMobileController.cs" />
-    <Compile Include="Controllers\PaymentController.cs" />
-    <Compile Include="Controllers\PaymentPageController.cs" />
+    <Compile Include="Controllers\FinanceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\UserInfoTestController.cs" />
+    <Compile Include="Helpers\PaymentHelpers.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BazaarVoiceReviews.cs" />
+    <Compile Include="Models\FinanceModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\IModelFactory.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Models\ProductsModel.cs" />
     <Compile Include="Queries\Base\AbstractTurn5Query.cs" />
     <Compile Include="Queries\Base\IUrlParameter.cs" />
+    <Compile Include="Queries\WebFirstDataQuery.cs" />
     <Compile Include="Queries\WebBazaarVoiceReviewSubmitQuery.cs" />
     <Compile Include="Queries\WebBazaarVoiceReviewsQuery.cs" />
     <Compile Include="Queries\Base\WebQueryStringParameter.cs" />

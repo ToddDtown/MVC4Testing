@@ -1,6 +1,4 @@
-﻿using MyCompany.Web.Mvc.Models;
-
-namespace MyCompany.Mvc.Models
+﻿namespace MyCompany.Web.Mvc.Models
 {
     public class HomeModel : BaseModel
     {

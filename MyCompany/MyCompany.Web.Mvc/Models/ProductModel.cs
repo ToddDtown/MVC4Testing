@@ -1,4 +1,4 @@
-﻿namespace MyCompany.Mvc.Models
+﻿namespace MyCompany.Web.Mvc.Models
 {
     public class ProductModel : BaseModel
     {

@@ -1,6 +1,4 @@
-﻿using MyCompany.Mvc.Models;
-
-namespace MyCompany.Web.Mvc.Models.ModelBuilders
+﻿namespace MyCompany.Web.Mvc.Models.ModelBuilders
 {
     public class ProductModelBuilder
     {
