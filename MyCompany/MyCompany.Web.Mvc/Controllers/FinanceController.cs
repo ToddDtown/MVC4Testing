@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Web.Mvc;
 using System.Xml.Serialization;
 using MyCompany.Web.Mvc.Helpers;
@@ -43,19 +44,46 @@ namespace MyCompany.Web.Mvc.Controllers
             var postContent = SerializationHelpers<Turn5Transaction>.ToXmlString(tran);
 
             var uri = new Uri("http://local.turn5api.com/api/createtransaction");
-            var request = HttpWebRequest.CreateHttp(uri);
+            var request = WebRequest.CreateHttp(uri);
             request.Method = "POST";
-            request.ContentType = "application/xml";
+            request.ContentType = "application/xml; charset=utf-16";
             request.ContentLength = postContent.Length;
 
-            var dataStream = request.GetRequestStream();
-            var bytes = postContent.ToBytesFromString();
-            dataStream.Write(bytes, 0, bytes.Length);
-            dataStream.Close();
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(postContent);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
 
             var response = request.GetResponse();
 
+
+
+
+
+            var receiveStream = response.GetResponseStream();
+            var encode = Encoding.GetEncoding("utf-8");
+            // Pipes the stream to a higher level stream reader with the required encoding format. 
+            var readStream = new StreamReader(receiveStream, encode);
+            var read = new Char[256];
+            // Reads 256 characters at a time.     
+            var count = readStream.Read(read, 0, 256);
+            var sb = new StringBuilder();
+            while (count > 0)
+            {
+                // Dumps the 256 characters on a string and displays the string to the console.
+                var str = new String(read, 0, count);
+                sb.Append(str);
+                count = readStream.Read(read, 0, 256);
+            }
+            response.Close();
+            readStream.Close();
+            
+
             var model = new FinanceModel();
+            model.CreditCardTypes = GetCreditCardTypes();
+            model.TransactionType = sb.ToString();
             return View("Finance", model);
         }
 
@@ -72,25 +100,13 @@ namespace MyCompany.Web.Mvc.Controllers
         }
     }
 
-    [XmlRoot("Transaction")]
     public class Turn5Transaction
     {
-        [XmlElement("Transaction_Type")]
         public string TransactionType { get; set; }
-
-        [XmlElement("CardType")]
         public string CardType { get; set; }
-
-        [XmlElement("CardHoldersName")]
         public string CardHoldersName { get; set; }
-
-        [XmlElement("Card_Number")]
         public string CardNumber { get; set; }
-
-        [XmlElement("Expiry_Date")]
         public string CardExpirationDate { get; set; }
-
-        [XmlElement("DollarAmount")]
         public decimal DollarAmount { get; set; }
     }
 }
