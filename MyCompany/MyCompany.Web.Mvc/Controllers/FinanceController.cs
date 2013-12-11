@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Web.Mvc;
+using System.Xml.Serialization;
 using MyCompany.Web.Mvc.Helpers;
+using MyCompany.Web.Mvc.Helpers.Serialization;
 using MyCompany.Web.Mvc.Models;
 
 namespace MyCompany.Web.Mvc.Controllers
@@ -13,27 +17,45 @@ namespace MyCompany.Web.Mvc.Controllers
             var model = new FinanceModel();
 
             model.CreditCardTypes = GetCreditCardTypes();
+            model.TransactionType = "05";
+            model.CreditCardNumber = "4111111111111111";
+            model.CreditCardType = CardType.VISA;
+            model.CreditCardExpiration = "1215";
+            model.NameOnCard = "John Doe";
+            model.Amount = 0;
 
             return View("Finance", model);
         }
 
         [HttpPost]
-        public ActionResult DoInfo(FormCollection formCollection)
+        public ActionResult DoPost(FormCollection formCollection)
         {
-            var model = new FinanceModel();
+            var tran = new Turn5Transaction
+            {
+                TransactionType = formCollection["TransactionType"],
+                CardType = formCollection["CreditCardType"],
+                CardHoldersName = formCollection["NameOnCard"],
+                CardNumber = formCollection["CreditCardNumber"],
+                CardExpirationDate = formCollection["CreditCardExpiration"],
+                DollarAmount = Convert.ToDecimal(formCollection["Amount"])
+            };
 
-            model.FirstName = formCollection["FirstName"];
-            model.LastName = formCollection["LastName"];
-            model.Address1 = formCollection["Address1"];
-            model.Address2 = formCollection["Address2"];
-            model.City = formCollection["City"];
-            model.State = formCollection["State"];
-            model.Zip = formCollection["Zip"];
-            model.CreditCardNumber = formCollection["CreditCardNumber"];
-            model.CreditCardExpiration = Convert.ToDateTime(formCollection["CreditCardExpiration"]);
-            model.CreditCardTypes = GetCreditCardTypes();
-            model.CreditCardType = formCollection["CreditCardType"].ToCardType();
-            
+            var postContent = SerializationHelpers<Turn5Transaction>.ToXmlString(tran);
+
+            var uri = new Uri("http://local.turn5api.com/api/createtransaction");
+            var request = HttpWebRequest.CreateHttp(uri);
+            request.Method = "POST";
+            request.ContentType = "application/xml";
+            request.ContentLength = postContent.Length;
+
+            var dataStream = request.GetRequestStream();
+            var bytes = postContent.ToBytesFromString();
+            dataStream.Write(bytes, 0, bytes.Length);
+            dataStream.Close();
+
+            var response = request.GetResponse();
+
+            var model = new FinanceModel();
             return View("Finance", model);
         }
 
@@ -48,5 +70,27 @@ namespace MyCompany.Web.Mvc.Controllers
                                new SelectListItem {Text = "Discover", Value = "DISCOVER"},
                            };
         }
+    }
+
+    [XmlRoot("Transaction")]
+    public class Turn5Transaction
+    {
+        [XmlElement("Transaction_Type")]
+        public string TransactionType { get; set; }
+
+        [XmlElement("CardType")]
+        public string CardType { get; set; }
+
+        [XmlElement("CardHoldersName")]
+        public string CardHoldersName { get; set; }
+
+        [XmlElement("Card_Number")]
+        public string CardNumber { get; set; }
+
+        [XmlElement("Expiry_Date")]
+        public string CardExpirationDate { get; set; }
+
+        [XmlElement("DollarAmount")]
+        public decimal DollarAmount { get; set; }
     }
 }

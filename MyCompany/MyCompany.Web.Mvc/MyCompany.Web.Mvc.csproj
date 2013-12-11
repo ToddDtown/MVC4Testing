@@ -105,7 +105,9 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\UserInfoTestController.cs" />
+    <Compile Include="Helpers\ByteHelpers.cs" />
     <Compile Include="Helpers\PaymentHelpers.cs" />
+    <Compile Include="Helpers\SerializationHelpers.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BazaarVoiceReviews.cs" />
     <Compile Include="Models\FinanceModel.cs" />

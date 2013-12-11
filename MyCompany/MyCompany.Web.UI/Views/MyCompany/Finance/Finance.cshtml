@@ -12,52 +12,30 @@
 
 <h1>eCommerce Pay Page</h1>
 
-@using (Html.BeginForm("DoInfo", "Finance", FormMethod.Post, new Dictionary<string, object> {{ "id", "payment-form" }}))
+@using (Html.BeginForm("DoPost", "Finance", FormMethod.Post, new Dictionary<string, object> { { "id", "payment-form" } }))
 {
     <div class="form-elements">
-        @Html.LabelFor(m => m.FirstName)
-        @Html.TextBoxFor(m => m.FirstName)
+        @Html.LabelFor(m => m.TransactionType, "Transaction Type")
+        @Html.TextBoxFor(m => m.TransactionType)
     </div>
     <div class="form-elements">
-        @Html.LabelFor(m => m.LastName)
-        @Html.TextBoxFor(m => m.LastName)
+        @Html.LabelFor(m => m.NameOnCard, "Card Holders Name")
+        @Html.TextBoxFor(m => m.NameOnCard)
     </div>
-    <div class="form-elements">
-        @Html.LabelFor(m => m.Address1)
-        @Html.TextBoxFor(m => m.Address1)
-    </div>
-    <div class="form-elements">
-        @Html.LabelFor(m => m.Address2)
-        @Html.TextBoxFor(m => m.Address2)
-    </div>
-    <div class="form-elements">
-        @Html.LabelFor(m => m.City)
-        @Html.TextBoxFor(m => m.City)
-    </div>
-    <div class="form-elements">
-        @Html.LabelFor(m => m.State)
-        @Html.TextBoxFor(m => m.State)
-    </div>
-    <div class="form-elements">
-        @Html.LabelFor(m => m.Zip)
-        @Html.TextBoxFor(m => m.Zip)
-    </div>
-    
-    <br/><h3>Card Information:</h3>
     <div class="form-elements">
         @Html.LabelFor(m => m.CreditCardNumber, "Credit Card Number")
         @Html.TextBoxFor(m => m.CreditCardNumber)
     </div>
     <div class="form-elements">
-        @Html.LabelFor(m => m.CreditCardExpiration)
+        @Html.LabelFor(m => m.CreditCardExpiration, "Credit Card Expiration")
         @Html.TextBoxFor(m => m.CreditCardExpiration)
     </div>
     <div class="form-elements">
-        @Html.LabelFor(m => m.CreditCardType)
+        @Html.LabelFor(m => m.CreditCardType, "Credit Card Type")
         @Html.DropDownListFor(m => m.CreditCardType, Model.CreditCardTypes)
     </div>
     <div class="form-elements">
-        @Html.LabelFor(m => m.Amount)
+        @Html.LabelFor(m => m.Amount, "Dollar Amount")
         @Html.TextBoxFor(m => m.Amount)
     </div>
     
