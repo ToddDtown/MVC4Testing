@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Mvc;
-using System.Xml.Serialization;
 using MyCompany.Web.Mvc.Helpers;
 using MyCompany.Web.Mvc.Helpers.Serialization;
 using MyCompany.Web.Mvc.Models;
@@ -38,52 +38,42 @@ namespace MyCompany.Web.Mvc.Controllers
                 CardHoldersName = formCollection["NameOnCard"],
                 CardNumber = formCollection["CreditCardNumber"],
                 CardExpirationDate = formCollection["CreditCardExpiration"],
-                DollarAmount = Convert.ToDecimal(formCollection["Amount"])
+                DollarAmount = formCollection["Amount"]
             };
 
             var postContent = SerializationHelpers<Turn5Transaction>.ToXmlString(tran);
 
-            var uri = new Uri("http://local.turn5api.com/api/createtransaction");
-            var request = WebRequest.CreateHttp(uri);
+            var request = (HttpWebRequest)WebRequest.Create("http://local.turn5api.com/payment/posttransaction");
+
+            request.Headers.Clear();
+
+            var encoding = new ASCIIEncoding();
+            var postData = postContent;
+            var data = encoding.GetBytes(postData);
+
             request.Method = "POST";
-            request.ContentType = "application/xml; charset=utf-16";
-            request.ContentLength = postContent.Length;
+            request.ContentType = "application/xml";
+            request.ContentLength = data.Length;
 
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            using (var stream = request.GetRequestStream())
             {
-                streamWriter.Write(postContent);
-                streamWriter.Flush();
-                streamWriter.Close();
+                stream.Write(data, 0, data.Length);
             }
 
-            var response = request.GetResponse();
+            var response = (HttpWebResponse)request.GetResponse();
 
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-
-
-
-            var receiveStream = response.GetResponseStream();
-            var encode = Encoding.GetEncoding("utf-8");
-            // Pipes the stream to a higher level stream reader with the required encoding format. 
-            var readStream = new StreamReader(receiveStream, encode);
-            var read = new Char[256];
-            // Reads 256 characters at a time.     
-            var count = readStream.Read(read, 0, 256);
-            var sb = new StringBuilder();
-            while (count > 0)
-            {
-                // Dumps the 256 characters on a string and displays the string to the console.
-                var str = new String(read, 0, count);
-                sb.Append(str);
-                count = readStream.Read(read, 0, 256);
-            }
             response.Close();
-            readStream.Close();
             
+            var model = new FinanceModel
+            {
+                CreditCardTypes = GetCreditCardTypes(), 
+                TransactionType = responseString
+            };
 
-            var model = new FinanceModel();
-            model.CreditCardTypes = GetCreditCardTypes();
-            model.TransactionType = sb.ToString();
+            model.Response = responseString;
+
             return View("Finance", model);
         }
 
@@ -107,6 +97,6 @@ namespace MyCompany.Web.Mvc.Controllers
         public string CardHoldersName { get; set; }
         public string CardNumber { get; set; }
         public string CardExpirationDate { get; set; }
-        public decimal DollarAmount { get; set; }
+        public string DollarAmount { get; set; }
     }
 }

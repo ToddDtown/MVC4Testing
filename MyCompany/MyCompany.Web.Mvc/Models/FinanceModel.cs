@@ -13,6 +13,7 @@ namespace MyCompany.Web.Mvc.Models
         public CardType CreditCardType { get; set; }
         public IEnumerable<SelectListItem> CreditCardTypes { get; set; }
         public decimal Amount { get; set; }
+        public string Response { get; set; }
     }
 
     public enum CardType
