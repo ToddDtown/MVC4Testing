@@ -2,6 +2,7 @@
 using Couchbase;
 using Microsoft.Practices.Unity;
 using MyCompany.Web.Mvc.REST.Downloaders;
+using MyCompany.Web.Mvc.Services;
 using Unity.Mvc3;
 
 namespace MyCompany.Web.Mvc
@@ -17,11 +18,16 @@ namespace MyCompany.Web.Mvc
 
         private static IUnityContainer BuildUnityContainer()
         {
+
             var container = new UnityContainer()
                 //.RegisterType<ITestService, TestService>()
                 .RegisterType<IDownloader, HttpDownloader>()
                 .RegisterInstance<ICouchbaseClient>(new CouchbaseClient());
-            
+
+            container.RegisterType<IBazaarVoiceService, BazaarVoiceService>(
+                                        new InjectionConstructor(container.Resolve<IDownloader>(), container.Resolve<ICouchbaseClient>()));
+
+
             return container;
         }
     }

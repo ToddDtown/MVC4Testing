@@ -1,4 +1,8 @@
-﻿using StructureMap.Configuration.DSL;
+﻿using Couchbase;
+using MyCompany.Web.Mvc.REST.Downloaders;
+using MyCompany.Web.Mvc.Services;
+using StructureMap;
+using StructureMap.Configuration.DSL;
 
 namespace MyCompany.Web.Mvc.IoC
 {
@@ -6,9 +10,11 @@ namespace MyCompany.Web.Mvc.IoC
     {
         public StructureMapControllerRegistry()
         {
-            //For<ITestService>().Use<TestService>();
+            For<IDownloader>().Use<HttpDownloader>();
 
-            //For<ICouchbaseClient>().Singleton().Use<SessionManager>();
+            For<IBazaarVoiceService>().Use<BazaarVoiceService>()
+                .Ctor<IDownloader>().Is(ObjectFactory.GetInstance<HttpDownloader>())
+                .Ctor<ICouchbaseClient>().Is(For<ICouchbaseClient>().Singleton().Use(new CouchbaseClient()));
         }
     }
 }

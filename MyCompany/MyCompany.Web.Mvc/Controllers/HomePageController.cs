@@ -9,6 +9,7 @@ using MyCompany.Web.Mvc.Models;
 using MyCompany.Web.Mvc.Models.ModelBuilders;
 using MyCompany.Web.Mvc.Queries;
 using MyCompany.Web.Mvc.REST.Downloaders;
+using MyCompany.Web.Mvc.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -16,13 +17,16 @@ namespace MyCompany.Web.Mvc.Controllers
 {
     public class HomePageController : BaseController
     {
-        private readonly IDownloader _downloader;
-        private readonly ICouchbaseClient _couchbaseClient;
+        //private readonly IDownloader _downloader;
+        //private readonly ICouchbaseClient _couchbaseClient;
+        private readonly IBazaarVoiceService _bazaarVoiceService;
 
-        public HomePageController(IDownloader downloader, ICouchbaseClient couchbaseClient)
+        //public HomePageController(IDownloader downloader, ICouchbaseClient couchbaseClient)
+        public HomePageController(IBazaarVoiceService bazaarVoiceService)
         {
-            _downloader = downloader;
-            _couchbaseClient = couchbaseClient;
+            //_downloader = downloader;
+            //_couchbaseClient = couchbaseClient;
+            _bazaarVoiceService = bazaarVoiceService;
         }
 
         public ActionResult Get()
@@ -35,56 +39,58 @@ namespace MyCompany.Web.Mvc.Controllers
 
         public ActionResult GetReviews(string productId)
         {
-            BazaarVoiceReviews reviews;
+            var reviews = _bazaarVoiceService.GetReviews("");
 
-            var filter = "productid:" + productId;
-            //var filter = "productid:" + productId + "&filter=Rating:lt:5";
-            //var filter = "productid:" + productId + "&filter=Rating:lt:5&filter=HasComments:false";
+            //BazaarVoiceReviews reviews;
 
-            var include = "products";
+            //var filter = "productid:" + productId;
+            ////var filter = "productid:" + productId + "&filter=Rating:lt:5";
+            ////var filter = "productid:" + productId + "&filter=Rating:lt:5&filter=HasComments:false";
 
-            var query = new WebBazaarVoiceReviewsQuery
-            {
-                ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
-                PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
-                Filter = filter,
-                Include = include,
-                HasComments = true,
-                Sort = ConfigurationManager.AppSettings["BazaarVoiceResultSort"],
-                Limit = Convert.ToInt32(ConfigurationManager.AppSettings["BazaarVoiceResultLimit"])
-            };
+            //var include = "products";
 
-            var cacheKey = GetKey(query.ToString());
-            var cachedReviews = _couchbaseClient != null ? _couchbaseClient.Get(cacheKey) : null;
+            //var query = new WebBazaarVoiceReviewsQuery
+            //{
+            //    ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
+            //    PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
+            //    Filter = filter,
+            //    Include = include,
+            //    HasComments = true,
+            //    Sort = ConfigurationManager.AppSettings["BazaarVoiceResultSort"],
+            //    Limit = Convert.ToInt32(ConfigurationManager.AppSettings["BazaarVoiceResultLimit"])
+            //};
 
-            if (cachedReviews != null)
-            {
-                reviews = JsonConvert.DeserializeObject<BazaarVoiceReviews>(((DownloaderResponse)cachedReviews).ResponseString);
-            }
-            else
-            {
-                var uri = new Uri(query.ToString());
-                var response = _downloader.GetResponse(uri);
+            //var cacheKey = GetKey(query.ToString());
+            //var cachedReviews = _couchbaseClient != null ? _couchbaseClient.Get(cacheKey) : null;
 
-                reviews = JsonConvert.DeserializeObject<BazaarVoiceReviews>(response.ResponseString);
+            //if (cachedReviews != null)
+            //{
+            //    reviews = JsonConvert.DeserializeObject<BazaarVoiceReviews>(((DownloaderResponse)cachedReviews).ResponseString);
+            //}
+            //else
+            //{
+            //    var uri = new Uri(query.ToString());
+            //    var response = _downloader.GetResponse(uri);
 
-                var obj = JObject.Parse(response.ResponseString);
-                if (obj["Includes"] != null && obj["Includes"]["Products"] != null && obj["Includes"]["Products"][productId] != null)
-                {
-                    reviews.Product = new Product();
-                    if (obj["Includes"]["Products"][productId]["Brand"] != null)
-                    {
-                        reviews.Product.BrandId = (string) obj["Includes"]["Products"][productId]["Brand"]["Id"];
-                        reviews.Product.BrandName = (string) obj["Includes"]["Products"][productId]["Brand"]["Name"];
-                    }
-                    reviews.Product.Name = (string) obj["Includes"]["Products"][productId]["Name"];
-                    reviews.Product.ProductPageUrl = (string) obj["Includes"]["Products"][productId]["ProductPageUrl"];
-                    reviews.Product.ImageUrl = (string) obj["Includes"]["Products"][productId]["ImageUrl"];
-                    reviews.Product.CategoryId = (string) obj["Includes"]["Products"][productId]["CategoryId"];
-                }
+            //    reviews = JsonConvert.DeserializeObject<BazaarVoiceReviews>(response.ResponseString);
 
-                _couchbaseClient.Store(StoreMode.Set, cacheKey, response.ResponseString, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
-            }
+            //    var obj = JObject.Parse(response.ResponseString);
+            //    if (obj["Includes"] != null && obj["Includes"]["Products"] != null && obj["Includes"]["Products"][productId] != null)
+            //    {
+            //        reviews.Product = new Product();
+            //        if (obj["Includes"]["Products"][productId]["Brand"] != null)
+            //        {
+            //            reviews.Product.BrandId = (string) obj["Includes"]["Products"][productId]["Brand"]["Id"];
+            //            reviews.Product.BrandName = (string) obj["Includes"]["Products"][productId]["Brand"]["Name"];
+            //        }
+            //        reviews.Product.Name = (string) obj["Includes"]["Products"][productId]["Name"];
+            //        reviews.Product.ProductPageUrl = (string) obj["Includes"]["Products"][productId]["ProductPageUrl"];
+            //        reviews.Product.ImageUrl = (string) obj["Includes"]["Products"][productId]["ImageUrl"];
+            //        reviews.Product.CategoryId = (string) obj["Includes"]["Products"][productId]["CategoryId"];
+            //    }
+
+            //    _couchbaseClient.Store(StoreMode.Set, cacheKey, response.ResponseString, DateTime.Now.AddDays(Convert.ToDouble(ConfigurationManager.AppSettings["BazaarVoiceCacheExpiration"])));
+            //}
 
             return PartialView("_BazaarVoice", reviews);
         }

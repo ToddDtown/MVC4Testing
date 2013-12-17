@@ -141,6 +141,8 @@
     <Compile Include="Caching\CouchbaseManager.cs" />
     <Compile Include="Caching\UserInfo.cs" />
     <Compile Include="Caching\ViewerInfo.cs" />
+    <Compile Include="Services\BazaarVoiceService.cs" />
+    <Compile Include="Services\IBazaarVoiceService.cs" />
     <Compile Include="UnityBootstrapper.cs" />
     <Compile Include="ViewEngine\BuildManagerWrapper.cs" />
     <Compile Include="ViewEngine\MyCompanyViewEngine.cs" />
