@@ -99,6 +99,7 @@
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\ImageViewerController.cs" />
     <Compile Include="Controllers\JQueryMobileController.cs" />
     <Compile Include="Controllers\FinanceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Models\BazaarVoiceReviews.cs" />
     <Compile Include="Models\FinanceModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\ImageViewer.cs" />
     <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\IModelFactory.cs" />
     <Compile Include="Models\ModelBuilders\ModelFactory.cs" />

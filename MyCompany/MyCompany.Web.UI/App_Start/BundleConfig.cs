@@ -20,6 +20,8 @@ namespace MyCompany.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/mycompany").Include("~/Resources/scripts/custom/user-info.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/imageviewer").Include("~/Resources/scripts/imageviewer/owl.carousel.js"));
+
             // ##############################################################################################################################
             // CSS
             // ##############################################################################################################################
@@ -32,6 +34,10 @@ namespace MyCompany.Web.UI
 
             bundles.Add(new StyleBundle("~/Content/jquery-mobile").Include("~/Resources/css/jquery-mobile/jquery.mobile.custom.structure.css",
                                                                            "~/Resources/css/jquery-mobile/jquery.mobile.custom.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/imageviewer").Include("~/Resources/css/owl.carousel.css",
+                                                                            "~/Resources/css/owl.theme.css",
+                                                                            "~/Resources/css/product.css"));
         }
     }
 }

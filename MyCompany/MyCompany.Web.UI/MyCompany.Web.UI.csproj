@@ -126,13 +126,20 @@
     <Content Include="Resources\css\core.css" />
     <Content Include="Resources\css\finance.css" />
     <Content Include="Resources\css\homepage.css" />
+    <Content Include="Resources\css\owl.carousel.css" />
+    <Content Include="Resources\css\owl.theme.css" />
+    <Content Include="Resources\css\product.css" />
     <Content Include="Resources\css\products.css" />
     <Content Include="ConfigData\AppSettings.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ConfigData\ConnectionStrings.config" />
     <None Include="Resources\scripts\jquery\jquery-1.7.1.intellisense.js" />
+    <Content Include="Resources\images\AjaxLoader.gif" />
+    <Content Include="Resources\images\grabbing.png" />
     <Content Include="Resources\scripts\custom\user-info.js" />
+    <Content Include="Resources\scripts\imageviewer\owl.carousel.js" />
+    <Content Include="Resources\scripts\imageviewer\owl.carousel.min.js" />
     <Content Include="Resources\scripts\jquery-mobile\jquery.mobile.custom.js" />
     <Content Include="Resources\scripts\jquery-mobile\jquery.mobile.custom.min.js" />
     <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.structure.css" />
@@ -178,10 +185,10 @@
     <Content Include="Views\MyCompany\Reviews\Review.cshtml" />
     <Content Include="Views\MyCompany\Shared\_BazaarVoice.cshtml" />
     <Content Include="Views\MyCompany\Finance\Finance.cshtml" />
+    <Content Include="Views\MyCompany\ImageViewer\ImageViewer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

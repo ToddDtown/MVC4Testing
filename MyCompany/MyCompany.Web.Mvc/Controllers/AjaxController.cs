@@ -27,6 +27,88 @@ namespace MyCompany.Web.Mvc.Controllers
                 _couchbaseClient = new CouchbaseClient();
         }
 
+        public JsonResult GetImages()
+        {
+            var model = CreateImageViewerObject();
+
+            var json = JsonConvert.SerializeObject(model);
+
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        private ImageViewer CreateImageViewerObject()
+        {
+            var imageViewer = new ImageViewer
+            {
+                ProductImages = new List<Image>
+                {
+                    new Image()
+                    {
+                        ImageUrl = "http://images.americanmuscle.com/ir/render/Turn5Render/37245",
+                        AltText = string.Empty,
+                        IsColor = true
+                    },
+                    new Image()
+                    {
+                        ImageUrl = "http://images.americanmuscle.com/ir/render/Turn5Render/37245_alt1",
+                        AltText = string.Empty,
+                        IsColor = true
+                    },
+                    new Image()
+                    {
+                        ImageUrl = "http://images.americanmuscle.com/ir/render/Turn5Render/37245_alt2",
+                        AltText = string.Empty,
+                        IsColor = false
+                    },
+                },
+                YearColors = new List<YearColors>()
+            };
+
+            var yearColors = new YearColors
+            {
+                Year = "2005",
+                Colors = new List<ColorInfo>()
+                {
+                    new ColorInfo
+                    {
+                        Name = "Sliver Metallic",
+                        Code = string.Empty,
+                        Hex = "#999999",
+                        Rgb = "183,193,205"
+                    }
+                }
+            };
+            imageViewer.YearColors.Add(yearColors);
+
+
+            yearColors = new YearColors
+            {
+                Year = "2006",
+                Colors = new List<ColorInfo>()
+                {
+                    new ColorInfo
+                    {
+                        Name = "Vista Blue",
+                        Code = string.Empty,
+                        Hex = "#3366CC",
+                        Rgb = "32,41,74"
+                    }
+                }
+            };
+            imageViewer.YearColors.Add(yearColors);
+
+            return imageViewer;
+        }
+
+        
+
+
+
+
+
+
         public ActionResult GetReviews(string productId)
         {
             const string cachePrefix = "Reviews_";
