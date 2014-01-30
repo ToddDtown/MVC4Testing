@@ -6,7 +6,9 @@ namespace MyCompany.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            return View("ImageViewer");
+            var model = "Hello World";
+
+            return View("ImageViewer", null, model);
         }
     }
 }
