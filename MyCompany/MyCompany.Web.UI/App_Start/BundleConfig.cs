@@ -7,6 +7,8 @@ namespace MyCompany.Web.UI
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+            
             // ##############################################################################################################################
             // JAVASCRIPT
             // ##############################################################################################################################
@@ -21,6 +23,9 @@ namespace MyCompany.Web.UI
             bundles.Add(new ScriptBundle("~/bundles/mycompany").Include("~/Resources/scripts/custom/user-info.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/imageviewer").Include("~/Resources/scripts/imageviewer/owl.carousel.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Resources/telerik/scripts/kendo.all.min.js",
+                                                                    "~/Resources/telerik/scripts/kendo.aspnetmvc.min.js"));
 
             // ##############################################################################################################################
             // CSS
@@ -38,6 +43,9 @@ namespace MyCompany.Web.UI
             bundles.Add(new StyleBundle("~/Content/imageviewer").Include("~/Resources/css/owl.carousel.css",
                                                                             "~/Resources/css/owl.theme.css",
                                                                             "~/Resources/css/product.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Resources/telerik/css/kendo.common.min.css",
+                                                                   "~/Resources/telerik/css/kendo.default.min.css"));
         }
     }
 }

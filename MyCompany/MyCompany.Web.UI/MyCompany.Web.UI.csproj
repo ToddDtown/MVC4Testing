@@ -43,6 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\lib\Kendo\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -185,10 +188,12 @@
     <Content Include="Views\MyCompany\Shared\_BazaarVoice.cshtml" />
     <Content Include="Views\MyCompany\Finance\Finance.cshtml" />
     <Content Include="Views\MyCompany\ImageViewer\ImageViewer.cshtml" />
-    <Content Include="Views\MyCompany\UIControls\UIControls.cshtml" />
+    <Content Include="Views\MyCompany\Kendo\Kendo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\telerik\css\" />
+    <Folder Include="Resources\telerik\scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
