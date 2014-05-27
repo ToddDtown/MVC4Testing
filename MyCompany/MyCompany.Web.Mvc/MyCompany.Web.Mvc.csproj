@@ -57,6 +57,9 @@
     <Reference Include="Enyim.Caching">
       <HintPath>..\lib\Couchbase\Enyim.Caching.dll</HintPath>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\lib\Kendo\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
@@ -112,6 +115,8 @@
     <Compile Include="Helpers\SerializationHelpers.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BazaarVoiceReviews.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\FinanceModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\ImageViewer.cs" />

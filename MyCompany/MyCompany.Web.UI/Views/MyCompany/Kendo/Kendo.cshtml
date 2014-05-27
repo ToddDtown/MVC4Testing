@@ -1,7 +1,8 @@
-﻿@model MyCompany.Web.Mvc.Models.HomeModel
+﻿@using MyCompany.Web.Mvc.Models
+@model MyCompany.Web.Mvc.Models.Customers
 
 @{
-    ViewBag.Title = "UI Controls";
+    ViewBag.Title = "Telerik Controls";
 }
 
 @section Head 
@@ -11,9 +12,56 @@
 
 <h1>Kendo Controls</h1>
 
-@Html.Kendo().DatePicker().Name("TEST")
+@(Html.Kendo().Grid<Customer>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.Id).Width(14);
+        columns.Bound(c => c.FirstName).Width(140);
+        columns.Bound(c => c.LastName).Width(140);
+        columns.Bound(c => c.Generation).Width(80);
+        columns.Bound(c => c.RegistrationDate).Width(200);
+        columns.Command(command => command.Destroy()).Width(110);
+    })
+    .ToolBar(toolbar =>
+    {
+        toolbar.Create();
+        toolbar.Save();
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InCell))
+    .Pageable()
+    .Navigatable()
+    .Sortable()
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Batch(true)
+        .PageSize(20)
+        .ServerOperation(false)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(c => c.Id))
+        .Create("Editing_Create", "Kendo")  // DON'T FORGET, SET CONTROLLER NAME
+        .Read("Editing_Read", "Kendo")
+        .Update("Editing_Update", "Kendo")
+        .Destroy("Editing_Destroy", "Kendo")
+    )
+)
 
 @section StartupScripts
 {
-
+    <script type="text/javascript">
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+    </script>
 }
