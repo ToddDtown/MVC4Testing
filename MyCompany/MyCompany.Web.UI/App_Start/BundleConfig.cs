@@ -13,10 +13,7 @@ namespace MyCompany.Web.UI
             // JAVASCRIPT
             // ##############################################################################################################################
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Resources/scripts/jquery/jquery-1.7.1.js",
-                                                                     "~/Resources/scripts/jquery/jquery-ui-1.8.20.js",
-                                                                     "~/Resources/scripts/jquery/jquery.unobtrusive*",
-                                                                     "~/Resources/scripts/jquery/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Resources/scripts/jquery/jquery-1.10.2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery-mobile").Include("~/Resources/scripts/jquery-mobile/jquery.mobile.custom.js"));
 
@@ -24,8 +21,8 @@ namespace MyCompany.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/imageviewer").Include("~/Resources/scripts/imageviewer/owl.carousel.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Resources/telerik/scripts/kendo.all.min.js",
-                                                                    "~/Resources/telerik/scripts/kendo.aspnetmvc.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Scripts/kendo/kendo.all.min.js",
+                                                                    "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
 
             // ##############################################################################################################################
             // CSS
@@ -44,9 +41,8 @@ namespace MyCompany.Web.UI
                                                                             "~/Resources/css/owl.theme.css",
                                                                             "~/Resources/css/product.css"));
 
-            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Resources/telerik/css/kendo.common.min.css",
-                                                                   "~/Resources/telerik/css/kendo.default.min.css",
-                                                                   "~/Resources/telerik/css/kendo.silver.min.css"));
+            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Content/kendo/kendo.common.min.css",
+                                                                   "~/Content/kendo/kendo.silver.min.css"));
         }
     }
 }

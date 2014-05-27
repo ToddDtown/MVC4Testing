@@ -1,5 +1,5 @@
 ﻿@using MyCompany.Web.Mvc.Models
-@model MyCompany.Web.Mvc.Models.Customers
+@model string
 
 @{
     ViewBag.Title = "Telerik Controls";
@@ -10,46 +10,27 @@
     
 }
 
-<h1>Kendo Controls</h1>
+<h1>Telerik Grid Controls</h1>
+@Html.Link("Inline Edit Grid", "/?grid=inline")<br />
+@Html.Link("Batch Edit Grid", "/?grid=batch")
+<br/><br />
 
-@(Html.Kendo().Grid<Customer>()
-    .Name("Grid")
-    .Columns(columns =>
+@if (Model != null)
+{
+    if (Model.ToLower() == "inline")
     {
-        columns.Bound(c => c.Id).Width(14);
-        columns.Bound(c => c.FirstName).Width(140);
-        columns.Bound(c => c.LastName).Width(140);
-        columns.Bound(c => c.Generation).Width(80);
-        columns.Bound(c => c.RegistrationDate).Width(200);
-        columns.Command(command => command.Destroy()).Width(110);
-    })
-    .ToolBar(toolbar =>
+        @Html.Partial("_InlineEditGrid")
+    }
+    else if (Model.ToLower() == "batch")
     {
-        toolbar.Create();
-        toolbar.Save();
-    })
-    .Editable(editable => editable.Mode(GridEditMode.InCell))
-    .Pageable()
-    .Navigatable()
-    .Sortable()
-    .Scrollable()
-    .DataSource(dataSource => dataSource
-        .Ajax()
-        .Batch(true)
-        .PageSize(20)
-        .ServerOperation(false)
-        .Events(events => events.Error("error_handler"))
-        .Model(model => model.Id(c => c.Id))
-        .Create("Editing_Create", "Kendo")  // DON'T FORGET, SET CONTROLLER NAME
-        .Read("Editing_Read", "Kendo")
-        .Update("Editing_Update", "Kendo")
-        .Destroy("Editing_Destroy", "Kendo")
-    )
-)
+        @Html.Partial("_BatchEditGrid")
+    }
+}
 
 @section StartupScripts
 {
     <script type="text/javascript">
+        
         function error_handler(e) {
             if (e.errors) {
                 var message = "Errors:\n";
@@ -63,5 +44,6 @@
                 alert(message);
             }
         }
+        
     </script>
 }

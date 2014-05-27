@@ -9,5 +9,7 @@ namespace MyCompany.Web.Mvc.Models
         public string LastName { get; set; }
         public string Generation { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public bool IsActive { get; set; }
+        public int Salary { get; set; }
     }
 }

@@ -10,14 +10,16 @@ namespace Kendo.Mvc.Examples.Controllers
 {
     public class KendoController : Controller
     {
-        public ActionResult Get()
+        public ActionResult Get(string grid = null)
         {
-            return View("Kendo");
+            return View("Kendo", null, grid);
         }
 
         public ActionResult Editing_Read([DataSourceRequest] DataSourceRequest request)
         {
             var customers = new Customers();
+
+            var rnd = new Random();
 
             for (var i = 1; i <= 40; i++)
             {
@@ -27,7 +29,9 @@ namespace Kendo.Mvc.Examples.Controllers
                     FirstName = "John",
                     LastName = "Doe",
                     Generation = "1973-1999",
-                    RegistrationDate = new DateTime(2012, 1, 20)
+                    RegistrationDate = new DateTime(rnd.Next(1998, 2014), rnd.Next(1, 12), rnd.Next(1, 30)),
+                    IsActive = true,
+                    Salary = new Random().Next(60000, 150000)
                 };
                 customers.CustomerList.Add(customer);
             }
@@ -35,8 +39,12 @@ namespace Kendo.Mvc.Examples.Controllers
             return Json(customers.CustomerList.ToDataSourceResult(request));
         }
 
+        //######################################################
+        // Edit Batch
+        //######################################################
+
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Editing_Create([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<Customer> customers)
+        public ActionResult Editing_Create([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]List<Customer> customers)
         {
             var results = new List<Customer>();
 
@@ -53,31 +61,72 @@ namespace Kendo.Mvc.Examples.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Editing_Update([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<Customer> products)
+        public ActionResult Editing_Update([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]List<Customer> customers)
         {
-            if (products != null && ModelState.IsValid)
+            if (customers != null && ModelState.IsValid)
             {
-                foreach (var product in products)
+                foreach (var product in customers)
                 {
                     //productService.Update(product);
                 }
             }
 
-            return Json(products.ToDataSourceResult(request, ModelState));
+            return Json(customers.ToDataSourceResult(request, ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Editing_Destroy([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<Customer> products)
+        public ActionResult Editing_Destroy([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]List<Customer> customers)
         {
-            if (products.Any())
+            if (customers.Any())
             {
-                foreach (var product in products)
+                foreach (var product in customers)
                 {
                     //productService.Destroy(product);
                 }
             }
 
-            return Json(products.ToDataSourceResult(request, ModelState));
+            return Json(customers.ToDataSourceResult(request, ModelState));
         }
+
+        
+        
+        //######################################################
+        // Edit Batch
+        //######################################################
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditingInline_Create([DataSourceRequest] DataSourceRequest request, Customer customer)
+        {
+            if (customer != null && ModelState.IsValid)
+            {
+                //productService.Create(product);
+            }
+
+            return Json(new[] { customer }.ToDataSourceResult(request, ModelState));
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditingInline_Update([DataSourceRequest] DataSourceRequest request, Customer customer)
+        {
+            if (customer != null && ModelState.IsValid)
+            {
+                //productService.Update(product);
+            }
+
+            return Json(new[] { customer }.ToDataSourceResult(request, ModelState));
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditingInline_Destroy([DataSourceRequest] DataSourceRequest request, Customer customer)
+        {
+            if (customer != null)
+            {
+                //productService.Destroy(product);
+            }
+
+            return Json(new[] { customer }.ToDataSourceResult(request, ModelState));
+        }
+
+        
     }
 }

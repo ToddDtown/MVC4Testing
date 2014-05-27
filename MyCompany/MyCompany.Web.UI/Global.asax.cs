@@ -28,7 +28,8 @@ namespace MyCompany.Web.UI
         protected void Application_Error()
         {
             var ctx = HttpContext.Current;
-            var error = new KeyValuePair<string, object>("ErrorMessage", ctx.Server.GetLastError().ToString());
+            var error = ctx.Server.GetLastError();
+            var x = "";
         }
     }
 }
