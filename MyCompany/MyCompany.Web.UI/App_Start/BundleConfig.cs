@@ -45,7 +45,8 @@ namespace MyCompany.Web.UI
                                                                             "~/Resources/css/product.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Resources/telerik/css/kendo.common.min.css",
-                                                                   "~/Resources/telerik/css/kendo.default.min.css"));
+                                                                   "~/Resources/telerik/css/kendo.default.min.css",
+                                                                   "~/Resources/telerik/css/kendo.silver.min.css"));
         }
     }
 }
