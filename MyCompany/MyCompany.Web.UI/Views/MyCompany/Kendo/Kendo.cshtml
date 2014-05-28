@@ -1,29 +1,28 @@
 ﻿@using MyCompany.Web.Mvc.Models
-@model string
+@model KendoModel
 
 @{
     ViewBag.Title = "Telerik Controls";
 }
-
-@section Head 
-{
-    
-}
-
 <h1>Telerik Grid Controls</h1>
 @Html.Link("Inline Edit Grid", "/?grid=inline")<br />
-@Html.Link("Batch Edit Grid", "/?grid=batch")
+@Html.Link("Batch Edit Grid", "/?grid=batch")<br/>
+@Html.Link("Batch Edit with Dropdown Grid", "/?grid=batchwithdd")
 <br/><br />
 
-@if (Model != null)
+@if (Model.GridType != null)
 {
-    if (Model.ToLower() == "inline")
+    if (Model.GridType.ToLower() == "inline")
     {
-        @Html.Partial("_InlineEditGrid")
+        @Html.Partial("_InlineEditGrid", Model)
     }
-    else if (Model.ToLower() == "batch")
+    else if (Model.GridType.ToLower() == "batch")
     {
         @Html.Partial("_BatchEditGrid")
+    }
+    else if (Model.GridType.ToLower() == "batchwithdd")
+    {
+        @Html.Partial("_BatchEditWithDropdownGrid")
     }
 }
 

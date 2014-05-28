@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using Couchbase;
-using Enyim.Caching.Memcached;
 using MyCompany.Web.Mvc.Models;
 using MyCompany.Web.Mvc.Queries;
 using MyCompany.Web.Mvc.REST.Downloaders;
@@ -16,15 +14,11 @@ namespace MyCompany.Web.Mvc.Controllers
     public class AjaxController : BaseController
     {
         private readonly IDownloader _downloader;
-        private readonly ICouchbaseClient _couchbaseClient;
 
         public AjaxController()
         {
             if (_downloader == null)
                 _downloader = new HttpDownloader();
-
-            if (_couchbaseClient == null)
-                _couchbaseClient = new CouchbaseClient();
         }
 
         public JsonResult GetImages()
@@ -112,11 +106,6 @@ namespace MyCompany.Web.Mvc.Controllers
         public ActionResult GetReviews(string productId)
         {
             const string cachePrefix = "Reviews_";
-
-            var cachedRating = _couchbaseClient != null ? _couchbaseClient.Get(cachePrefix + productId) : null;
-
-            if (cachedRating != null)
-                return Content(((DownloaderResponse)cachedRating).ResponseString);
 
             var bazaarVoiceQuery = new WebBazaarVoiceReviewsQuery
             {

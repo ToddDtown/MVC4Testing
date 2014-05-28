@@ -42,7 +42,7 @@ namespace MyCompany.Web.UI
                                                                             "~/Resources/css/product.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Content/kendo/kendo.common.min.css",
-                                                                   "~/Content/kendo/kendo.silver.min.css"));
+                                                                   "~/Content/kendo/kendo.black.min.css"));
         }
     }
 }

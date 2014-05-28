@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
-using Enyim.Caching.Memcached;
 using MyCompany.Web.Mvc.Caching;
 using Newtonsoft.Json;
 using NLog.Internal;
@@ -61,7 +60,6 @@ namespace MyCompany.Web.Mvc.Controllers
             //else
             //    mode = StoreMode.Add;
 
-            CouchbaseManager.StoreJson(_key, userInfo, StoreMode.Set);
 
             //var imageViewerInfo = new ImageViewerInfo();
             //imageViewerInfo.ViewerImageUrls = new List<ImageUrl>();

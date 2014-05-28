@@ -51,12 +51,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Couchbase">
-      <HintPath>..\lib\Couchbase\Couchbase.dll</HintPath>
-    </Reference>
-    <Reference Include="Enyim.Caching">
-      <HintPath>..\lib\Couchbase\Enyim.Caching.dll</HintPath>
-    </Reference>
     <Reference Include="Kendo.Mvc">
       <HintPath>..\lib\Kendo\Kendo.Mvc.dll</HintPath>
     </Reference>
@@ -98,7 +92,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caching\CacheManager.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
@@ -120,6 +113,7 @@
     <Compile Include="Models\FinanceModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\ImageViewer.cs" />
+    <Compile Include="Models\KendoModel.cs" />
     <Compile Include="Models\ModelBuilders\HomeModelBuilder.cs" />
     <Compile Include="Models\ModelBuilders\IModelFactory.cs" />
     <Compile Include="Models\ModelBuilders\ModelFactory.cs" />
@@ -146,7 +140,6 @@
     <Compile Include="IoC\StructureMapDependencyResolver.cs" />
     <Compile Include="MvcBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Caching\CouchbaseManager.cs" />
     <Compile Include="Caching\UserInfo.cs" />
     <Compile Include="Caching\ViewerInfo.cs" />
     <Compile Include="Services\BazaarVoiceService.cs" />

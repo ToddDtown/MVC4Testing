@@ -957,6 +957,7 @@
     <Content Include="Scripts\kendo\kendo.window.min.js.map" />
     <Content Include="Views\MyCompany\Kendo\_InlineEditGrid.cshtml" />
     <Content Include="Views\MyCompany\Kendo\_BatchEditGrid.cshtml" />
+    <Content Include="Views\MyCompany\Kendo\_BatchEditWithDropdownGrid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
