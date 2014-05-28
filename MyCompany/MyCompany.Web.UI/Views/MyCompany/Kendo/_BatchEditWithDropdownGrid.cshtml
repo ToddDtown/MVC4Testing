@@ -8,17 +8,22 @@
         columns.Bound(c => c.Id).Width(20);
         columns.Bound(c => c.FirstName).Width(100);
         columns.Bound(c => c.LastName).Width(100);
-        
-        //columns.Bound(c => c.Generation).ClientTemplate("#= Generation #").Width(80);
 
         columns.Bound(c => c.Generation)
-            .ClientTemplate(
-                Html.Kendo().DropDownList()
-                    .Name("GenerationsDropDown")
-                    .BindTo(Model.Generations)
-                    .ToClientTemplate()
-                    .ToHtmlString()
-            );
+            .EditorTemplateName("_GenerationList")
+            .Title("Generation")
+            .ClientTemplate("#:Generation#")
+            .Width(100);
+
+        //columns.Bound(c => c.Generation)
+        //    .Template(c => c.Generation)
+        //    .ClientTemplate(
+        //        Html.Kendo().DropDownList()
+        //            .Name("GenerationsDropDown")
+        //            .BindTo(Model.Generations)
+        //            .ToClientTemplate()
+        //            .ToHtmlString()
+        //    );
         
         columns.Bound(c => c.IsActive).ClientTemplate("<input type='checkbox' value='#= IsActive #' " +
                                                       "# if (IsActive) { #" +
@@ -47,7 +52,6 @@
         {
             model.Id(c => c.Id);
             model.Field(c => c.Id).Editable(false);
-            model.Field(c => c.Generation).DefaultValue(ViewData["defaultCategory"] as Customer);
         })
         .PageSize(20)
         .Read(read => read.Action("Editing_Read", "Kendo"))
