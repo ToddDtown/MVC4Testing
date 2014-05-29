@@ -1,0 +1,27 @@
+﻿@using MyCompany.Web.Mvc.Models
+@model KendoModel
+
+@(Html.Kendo().Grid<Customer>()
+    .Name("GenerationGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(e => e.FirstName).Title("First Name");
+        columns.Bound(e => e.LastName).Title("Last Name");
+        columns.Bound(e => e.Generation).Title("Generation").EditorTemplateName("GenerationList");
+        columns.Command(command => command.Edit());
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(10)
+        .Events(events => events.Error("error_handler"))
+        .Model(model =>
+        {
+            model.Id(e => e.Id);
+            model.Field(c => c.Generation).Editable(true);
+        })
+        .Create(update => update.Action("EditingInline_Create", "Kendo"))
+        .Read(read => read.Action("Editing_Read", "Kendo"))
+        .Update(update => update.Action("EditingInline_Update", "Kendo")))
+)

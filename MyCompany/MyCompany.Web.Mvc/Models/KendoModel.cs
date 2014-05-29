@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace MyCompany.Web.Mvc.Models
 {
@@ -7,10 +6,10 @@ namespace MyCompany.Web.Mvc.Models
     {
         public KendoModel()
         {
-            Generations = new List<SelectListItem>();
+            Generations = new List<Generation>();
         }
 
         public string GridType { get; set; }
-        public IEnumerable<SelectListItem> Generations { get; set; }
+        public IEnumerable<Generation> Generations { get; set; }
     }
 }

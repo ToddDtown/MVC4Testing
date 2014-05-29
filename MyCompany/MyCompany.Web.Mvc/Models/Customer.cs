@@ -12,4 +12,10 @@ namespace MyCompany.Web.Mvc.Models
         public bool IsActive { get; set; }
         public int Salary { get; set; }
     }
+
+    public class Generation
+    {
+        public int GenerationId { get; set; }
+        public string GenerationName { get; set; }
+    }
 }

@@ -12,18 +12,6 @@ namespace Kendo.Mvc.Examples.Controllers
     {
         public ActionResult Get(string grid = null)
         {
-            //var generations = new Dictionary<string, string>
-            //{
-            //    {"2010-2014", "2010-2014"},
-            //    {"2005-2009", "2005-2009"},
-            //    {"1999-2004", "1999-2004"},
-            //    {"1994-1998", "1994-1998"},
-            //    {"1979-1993", "1979-1993"}
-            //};
-
-            //ViewData["categories"] = generations;
-            //ViewData["defaultCategory"] = generations.First();
-
             var model = new KendoModel
             {
                 GridType = grid, 
@@ -33,24 +21,26 @@ namespace Kendo.Mvc.Examples.Controllers
             return View("Kendo", null, model);
         }
 
-        public IEnumerable<SelectListItem> GetGenerations()
+        public List<Generation> GetGenerations()
         {
-            var generations = new List<SelectListItem>();
+            var generations = new List<Generation>();
 
-            var item = new SelectListItem {Value = "2010-2014", Text = "2010-2014"};
-            generations.Add(item);
+            var gen = new Generation {GenerationId = 1, GenerationName = "2010-2014"};
+            generations.Add(gen);
 
-            item = new SelectListItem {Value = "2005-2009", Text = "2005-2009"};
-            generations.Add(item);
+            gen = new Generation {GenerationId = 1, GenerationName = "2005-2009"};
+            generations.Add(gen);
 
-            item = new SelectListItem {Value = "1999-2004", Text = "1999-2004"};
-            generations.Add(item);
+            gen = new Generation {GenerationId = 1, GenerationName = "1999-2004"};
+            generations.Add(gen);
 
-            item = new SelectListItem {Value = "1994-1998", Text = "1994-1998"};
-            generations.Add(item);
+            gen = new Generation {GenerationId = 1, GenerationName = "1994-1998"};
+            generations.Add(gen);
 
-            item = new SelectListItem {Value = "1979-1993", Text = "1979-1993"};
-            generations.Add(item);
+            gen = new Generation {GenerationId = 1, GenerationName = "1979-1993"};
+            generations.Add(gen);
+
+            ViewData["GenerationList"] = generations;
 
             return generations;
         } 
@@ -69,8 +59,8 @@ namespace Kendo.Mvc.Examples.Controllers
                     FirstName = "John",
                     LastName = "Doe",
                     Generation = GetGeneration(rnd.Next(0, 4)),
-                    RegistrationDate = new DateTime(rnd.Next(1998, 2014), rnd.Next(1, 12), rnd.Next(1, 30)),
-                    IsActive = (i == 2 || i == 4) ? false : true,
+                    RegistrationDate = new DateTime(2014, 1, 1),
+                    IsActive = (i != 2 && i != 4),
                     Salary = new Random().Next(60000, 150000)
                 };
                 customers.CustomerList.Add(customer);

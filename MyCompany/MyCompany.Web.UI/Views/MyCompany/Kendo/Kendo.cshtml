@@ -10,7 +10,9 @@
 @Html.Link("Batch Edit with Dropdown Grid", "/?grid=batchwithdd")
 <br/><br />
 
-@if (Model.GridType != null)
+@Html.Partial("_Grid", Model)
+
+@*@if (Model.GridType != null)
 {
     if (Model.GridType.ToLower() == "inline")
     {
@@ -24,7 +26,7 @@
     {
         @Html.Partial("_BatchEditWithDropdownGrid")
     }
-}
+}*@
 
 @section StartupScripts
 {
