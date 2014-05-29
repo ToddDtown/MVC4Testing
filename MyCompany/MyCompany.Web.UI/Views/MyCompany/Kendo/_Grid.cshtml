@@ -5,13 +5,14 @@
     .Name("GenerationGrid")
     .Columns(columns =>
     {
+        columns.Bound(e => e.Id);
         columns.Bound(e => e.FirstName).Title("First Name");
         columns.Bound(e => e.LastName).Title("Last Name");
         columns.Bound(e => e.Generation).Title("Generation").EditorTemplateName("GenerationList");
         columns.Command(command => command.Edit());
     })
     .ToolBar(toolbar => toolbar.Create())
-    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
     .DataSource(dataSource => dataSource
         .Ajax()
         .PageSize(10)
@@ -19,7 +20,7 @@
         .Model(model =>
         {
             model.Id(e => e.Id);
-            model.Field(c => c.Generation).Editable(true);
+            model.Field(c => c.Id).Editable(false);
         })
         .Create(update => update.Action("EditingInline_Create", "Kendo"))
         .Read(read => read.Action("Editing_Read", "Kendo"))
