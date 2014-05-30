@@ -5,14 +5,19 @@
     .Name("GenerationGrid")
     .Columns(columns =>
     {
-        columns.Bound(e => e.Id);
-        columns.Bound(e => e.FirstName).Title("First Name");
-        columns.Bound(e => e.LastName).Title("Last Name");
-        columns.Bound(e => e.Generation).Title("Generation").EditorTemplateName("GenerationList");
-        columns.Command(command => command.Edit());
+        columns.Bound(c => c.Id).Width(28);
+        columns.Bound(c => c.FirstName).Title("First Name").Width(100);
+        columns.Bound(c => c.LastName).Title("Last Name").Width(100);
+        columns.Bound(c => c.Generation).Title("Generation").Width(150).EditorTemplateName("_GridGenerationList");
+        columns.Bound(c => c.RegistrationDate).Title("Registration Date").Width(250).Format("{0:MM/dd/yyyy HH:mm}").EditorTemplateName("_GridDateTimePicker");
+        columns.Bound(c => c.Salary).Title("Salary").Width(80);
+        columns.Command(command => command.Edit()).Width(100);
     })
     .ToolBar(toolbar => toolbar.Create())
-    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Sortable()
+    .Navigatable()
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
     .DataSource(dataSource => dataSource
         .Ajax()
         .PageSize(10)
@@ -25,4 +30,4 @@
         .Create(update => update.Action("EditingInline_Create", "Kendo"))
         .Read(read => read.Action("Editing_Read", "Kendo"))
         .Update(update => update.Action("EditingInline_Update", "Kendo")))
-)
+      )

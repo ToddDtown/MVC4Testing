@@ -973,9 +973,9 @@
     <Content Include="Scripts\kendo\kendo.window.min.js.map" />
     <Content Include="Views\MyCompany\Kendo\_InlineEditGrid.cshtml" />
     <Content Include="Views\MyCompany\Kendo\_BatchEditGrid.cshtml" />
-    <Content Include="Views\MyCompany\Kendo\_BatchEditWithDropdownGrid.cshtml" />
     <Content Include="Views\MyCompany\Kendo\_Grid.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\GenerationList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_GridGenerationList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_GridDateTimePicker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
