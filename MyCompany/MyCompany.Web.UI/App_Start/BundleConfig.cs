@@ -21,7 +21,16 @@ namespace MyCompany.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/imageviewer").Include("~/Resources/scripts/imageviewer/owl.carousel.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Resources/scripts/kendo/kendo.all.min.js",
+            //bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Resources/scripts/kendo/kendo.all.min.js",
+            //                                                        "~/Resources/scripts/kendo/kendo.aspnetmvc.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Resources/scripts/kendo/jquery.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.core.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.web.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.window.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.datetimepicker.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.dropdownlist.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.grid.min.js",
                                                                     "~/Resources/scripts/kendo/kendo.aspnetmvc.min.js"));
 
             // ##############################################################################################################################
@@ -41,7 +50,8 @@ namespace MyCompany.Web.UI
                                                                             "~/Resources/css/owl.theme.css",
                                                                             "~/Resources/css/product.css"));
 
-            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Resources/css/kendo/kendo.common.min.css",
+            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Resources/css/kendo/kendo.common.core.min.css",
+                                                                   "~/Resources/css/kendo/kendo.common.min.css",
                                                                    "~/Resources/css/kendo/kendo.black.min.css"));
         }
     }
