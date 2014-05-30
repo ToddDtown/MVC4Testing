@@ -14,9 +14,11 @@ namespace Kendo.Mvc.Examples.Controllers
         {
             var model = new KendoModel
             {
-                GridType = grid, 
+                GridType = grid,
                 Generations = GetGenerations()
             };
+
+            GetGenerations();
 
             return View("Kendo", null, model);
         }
@@ -140,19 +142,19 @@ namespace Kendo.Mvc.Examples.Controllers
         {
             var generations = new List<Generation>();
 
-            var gen = new Generation { GenerationId = 1, GenerationName = "2010-2014" };
+            var gen = new Generation { Text = "2010-2014" };
             generations.Add(gen);
 
-            gen = new Generation { GenerationId = 1, GenerationName = "2005-2009" };
+            gen = new Generation { Text = "2005-2009" };
             generations.Add(gen);
 
-            gen = new Generation { GenerationId = 1, GenerationName = "1999-2004" };
+            gen = new Generation { Text = "1999-2004" };
             generations.Add(gen);
 
-            gen = new Generation { GenerationId = 1, GenerationName = "1994-1998" };
+            gen = new Generation { Text = "1994-1998" };
             generations.Add(gen);
 
-            gen = new Generation { GenerationId = 1, GenerationName = "1979-1993" };
+            gen = new Generation { Text = "1979-1993" };
             generations.Add(gen);
 
             ViewData["GenerationList"] = generations;

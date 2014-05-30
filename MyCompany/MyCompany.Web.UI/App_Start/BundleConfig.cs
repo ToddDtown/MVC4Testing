@@ -8,7 +8,7 @@ namespace MyCompany.Web.UI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.IgnoreList.Clear();
-            
+
             // ##############################################################################################################################
             // JAVASCRIPT
             // ##############################################################################################################################
@@ -21,8 +21,8 @@ namespace MyCompany.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/imageviewer").Include("~/Resources/scripts/imageviewer/owl.carousel.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Scripts/kendo/kendo.all.min.js",
-                                                                    "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include("~/Resources/scripts/kendo/kendo.all.min.js",
+                                                                    "~/Resources/scripts/kendo/kendo.aspnetmvc.min.js"));
 
             // ##############################################################################################################################
             // CSS
@@ -41,8 +41,8 @@ namespace MyCompany.Web.UI
                                                                             "~/Resources/css/owl.theme.css",
                                                                             "~/Resources/css/product.css"));
 
-            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Content/kendo/kendo.common.min.css",
-                                                                   "~/Content/kendo/kendo.black.min.css"));
+            bundles.Add(new StyleBundle("~/Content/kendo").Include("~/Resources/css/kendo/kendo.common.min.css",
+                                                                   "~/Resources/css/kendo/kendo.black.min.css"));
         }
     }
 }

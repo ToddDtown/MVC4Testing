@@ -5,28 +5,10 @@
     ViewBag.Title = "Telerik Controls";
 }
 <h1>Telerik Grid Controls</h1>
-@Html.Link("Inline Edit Grid", "/?grid=inline")<br />
-@Html.Link("Batch Edit Grid", "/?grid=batch")<br/>
-@Html.Link("Batch Edit with Dropdown Grid", "/?grid=batchwithdd")
-<br/><br />
 
+@*@Html.Partial("_InlineEditGrid", Model)
+@Html.Partial("_BatchEditGrid")*@
 @Html.Partial("_Grid", Model)
-
-@*@if (Model.GridType != null)
-{
-    if (Model.GridType.ToLower() == "inline")
-    {
-        @Html.Partial("_InlineEditGrid", Model)
-    }
-    else if (Model.GridType.ToLower() == "batch")
-    {
-        @Html.Partial("_BatchEditGrid")
-    }
-    else if (Model.GridType.ToLower() == "batchwithdd")
-    {
-        @Html.Partial("_BatchEditWithDropdownGrid")
-    }
-}*@
 
 @section StartupScripts
 {

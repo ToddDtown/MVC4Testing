@@ -15,7 +15,6 @@ namespace MyCompany.Web.Mvc.Models
 
     public class Generation
     {
-        public int GenerationId { get; set; }
-        public string GenerationName { get; set; }
+        public string Text { get; set; }
     }
 }
