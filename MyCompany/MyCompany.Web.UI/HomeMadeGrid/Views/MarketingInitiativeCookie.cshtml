@@ -1,0 +1,43 @@
+﻿@using Turn5.AM.Core.Helpers
+@model Turn5.AM.Models.Admin.MarketingInitiative.InitiativeCookie
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section PageHeader
+{
+    Marketing Initiative Cookies
+}
+
+<div id="mi-container">
+    <ul id="mi">
+        <li>
+            <form method="POST" id="form-set-mi-cookie" action="@Url.Action("setcookie", "MarketingInitiative")">
+                Initiative Date: @Html.TextBox("mi-start-date", Model.InitiativeDate, new Dictionary<string, object> { { "id", "mi-start-date" }, { "class", "marketing-textbox" } })
+                @Html.SubmitButton("Set Cookie", new Dictionary<string, object> { { "class", "marketing-submit" }, { "onclick", "return ValidateDate($('#mi-start-date'))" } })            
+            </form>
+            <span class="marketing-date-format">MM/DD/YYYY HH:MM:SS AM/PM</span><br />
+            <span class="marketing-date-validator" id="date-validator">Please enter a valid datetime.</span>
+            <h4>Marketing initiative start date set to <span class="current-cookie-value">@(Model != null && Model.InitiativeDate > DateTime.Now.AddYears(-10) ? Model.InitiativeDate.ToShortDateString() + " " + Model.InitiativeDate.ToShortTimeString() : "<NOT SET>")</span>.</h4>
+</li>
+    </ul>
+</div>
+
+@section startupScripts
+{
+    <script type="text/javascript">
+        function ValidateDate(date) {
+            if (date.length == 0) return false;
+            if (IsValidDate(date.val())) {
+                $("#date-validator").css("display", "none");
+                return true;
+            } else {
+                $("#date-validator").css("display", "inline");
+                return false;
+            }
+        }
+
+        HighlightMenuItem("marketing-initiative-cookies");
+    </script>
+}

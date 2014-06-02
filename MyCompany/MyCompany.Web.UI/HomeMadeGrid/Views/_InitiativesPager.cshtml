@@ -1,0 +1,20 @@
+﻿@using Turn5.AM.Core.Helpers
+@model Turn5.AM.Models.Admin.MarketingInitiative.Initiatives
+
+<div id="pager-container">
+    <span>
+        @Html.LinkWithImage(Url.Content("/ClientResources/img/admin/first.png"), string.Empty, Model.FirstPageUrl)
+    </span>
+    <span>
+        @Html.LinkWithImage(Url.Content("/ClientResources/img/admin/previous.png"), string.Empty, Model.PreviousPageUrl)
+    </span>
+    <span>
+        Page @Model.CurrentPage.ToString() of @Model.NumberOfPages.ToString()
+    </span>
+    <span>
+        @Html.LinkWithImage(Url.Content("/ClientResources/img/admin/next.png"), string.Empty, Model.NextPageUrl)
+    </span>
+    <span>
+        @Html.LinkWithImage(Url.Content("/ClientResources/img/admin/last.png"), string.Empty, Model.LastPageUrl)
+    </span>
+</div>
