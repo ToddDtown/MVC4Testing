@@ -126,6 +126,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HomeMadeGrid\admin.css" />
+    <Content Include="HomeMadeGrid\admin.js" />
+    <Content Include="HomeMadeGrid\Images\AM-icon.png" />
+    <Content Include="HomeMadeGrid\Images\checkmark-gray.png" />
+    <Content Include="HomeMadeGrid\Images\checkmark.png" />
+    <Content Include="HomeMadeGrid\Images\delete.gif" />
+    <Content Include="HomeMadeGrid\Images\edit.png" />
+    <Content Include="HomeMadeGrid\Images\first.png" />
+    <Content Include="HomeMadeGrid\Images\last.png" />
+    <Content Include="HomeMadeGrid\Images\next.png" />
+    <Content Include="HomeMadeGrid\Images\previous.png" />
     <Content Include="Resources\css\kendo\Black\editor.png" />
     <Content Include="Resources\css\kendo\Black\imagebrowser.png" />
     <Content Include="Resources\css\kendo\Black\indeterminate.gif" />
@@ -154,6 +165,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ConfigData\ConnectionStrings.config" />
+    <Content Include="HomeMadeGrid\Views\MarketingInitiative.cshtml" />
+    <Content Include="HomeMadeGrid\Views\MarketingInitiativeCookie.cshtml" />
+    <Content Include="HomeMadeGrid\Views\_Grid.cshtml" />
+    <Content Include="HomeMadeGrid\Views\_InitiativesGrid.cshtml" />
+    <Content Include="HomeMadeGrid\Views\_InitiativesModal.cshtml" />
+    <Content Include="HomeMadeGrid\Views\_InitiativesPager.cshtml" />
     <None Include="Resources\scripts\jquery\jquery-1.7.1.intellisense.js" />
     <Content Include="Resources\images\AjaxLoader.gif" />
     <Content Include="Resources\images\grabbing.png" />
