@@ -47,7 +47,7 @@ namespace Kendo.Mvc.Examples.Controllers
         }
 
         //######################################################
-        // Edit Batch
+        // Edit Inline
         //######################################################
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -140,22 +140,14 @@ namespace Kendo.Mvc.Examples.Controllers
 
         public List<Generation> GetGenerations()
         {
-            var generations = new List<Generation>();
-
-            var gen = new Generation { Text = "2010-2014" };
-            generations.Add(gen);
-
-            gen = new Generation { Text = "2005-2009" };
-            generations.Add(gen);
-
-            gen = new Generation { Text = "1999-2004" };
-            generations.Add(gen);
-
-            gen = new Generation { Text = "1994-1998" };
-            generations.Add(gen);
-
-            gen = new Generation { Text = "1979-1993" };
-            generations.Add(gen);
+            var generations = new List<Generation>
+            {
+                new Generation() {Text = "2010-2014"},
+                new Generation() {Text = "2005-2009"},
+                new Generation() {Text = "1999-2004"},
+                new Generation() {Text = "1994-1998"},
+                new Generation() {Text = "1979-1993"}
+            };
 
             ViewData["GenerationList"] = generations;
 
