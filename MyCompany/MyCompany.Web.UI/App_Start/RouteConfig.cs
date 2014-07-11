@@ -12,7 +12,7 @@ namespace MyCompany.Web.UI
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}",
-                new { controller = "Kendo", action = "Get" }
+                new { controller = "JqueryGuts", action = "Get" }
             );
 
             routes.MapRoute(

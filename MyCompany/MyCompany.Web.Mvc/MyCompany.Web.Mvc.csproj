@@ -98,6 +98,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\ImageViewerController.cs" />
+    <Compile Include="Controllers\JqueryGutsController.cs" />
     <Compile Include="Controllers\JQueryMobileController.cs" />
     <Compile Include="Controllers\FinanceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />

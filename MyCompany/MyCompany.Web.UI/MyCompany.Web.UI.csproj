@@ -183,6 +183,7 @@
     <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.structure.min.css" />
     <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.theme.css" />
     <Content Include="Resources\css\jquery-mobile\jquery.mobile.custom.theme.min.css" />
+    <Content Include="Resources\scripts\jquery-uncompressed\jquery-1.11.1.js" />
     <Content Include="Resources\scripts\jquery\jquery-1.10.2.min.js" />
     <Content Include="Resources\scripts\jquery\jquery-1.7.1.js" />
     <Content Include="Resources\scripts\jquery\jquery-1.7.1.min.js" />
@@ -232,9 +233,12 @@
     <Content Include="Views\MyCompany\Kendo\_Grid.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_GridGenerationList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_GridDateTimePicker.cshtml" />
+    <Content Include="Views\MyCompany\JqueryGuts\JqueryGuts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Trucks\" />
+    <Folder Include="Views\XT\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
