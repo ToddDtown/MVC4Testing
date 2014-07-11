@@ -28,58 +28,5 @@ namespace MyCompany.Web.Mvc.Controllers
 
             return View("HomePage", model);
         }
-
-        public ActionResult GetReviews(string productId)
-        {
-            BazaarVoiceReviews reviews;
-
-            var filter = "productid:" + productId;
-            //var filter = "productid:" + productId + "&filter=Rating:lt:5";
-            //var filter = "productid:" + productId + "&filter=Rating:lt:5&filter=HasComments:false";
-
-            var include = "products";
-
-            var query = new WebBazaarVoiceReviewsQuery
-            {
-                ApiVersion = ConfigurationManager.AppSettings["BazaarVoiceApiVersion"],
-                PassKey = ConfigurationManager.AppSettings["BazaarVoiceKey"],
-                Filter = filter,
-                Include = include,
-                HasComments = true,
-                Sort = ConfigurationManager.AppSettings["BazaarVoiceResultSort"],
-                Limit = Convert.ToInt32(ConfigurationManager.AppSettings["BazaarVoiceResultLimit"])
-            };
-
-
-            var uri = new Uri(query.ToString());
-            var response = _downloader.GetResponse(uri);
-
-            reviews = JsonConvert.DeserializeObject<BazaarVoiceReviews>(response.ResponseString);
-
-            var obj = JObject.Parse(response.ResponseString);
-            if (obj["Includes"] != null && obj["Includes"]["Products"] != null && obj["Includes"]["Products"][productId] != null)
-            {
-                reviews.Product = new Product();
-                if (obj["Includes"]["Products"][productId]["Brand"] != null)
-                {
-                    reviews.Product.BrandId = (string) obj["Includes"]["Products"][productId]["Brand"]["Id"];
-                    reviews.Product.BrandName = (string) obj["Includes"]["Products"][productId]["Brand"]["Name"];
-                }
-                reviews.Product.Name = (string) obj["Includes"]["Products"][productId]["Name"];
-                reviews.Product.ProductPageUrl = (string) obj["Includes"]["Products"][productId]["ProductPageUrl"];
-                reviews.Product.ImageUrl = (string) obj["Includes"]["Products"][productId]["ImageUrl"];
-                reviews.Product.CategoryId = (string) obj["Includes"]["Products"][productId]["CategoryId"];
-            }
-
-            return PartialView("_BazaarVoice", reviews);
-        }
-
-        public string GetKey(string keyInput)
-        {
-            var sb = new StringBuilder(32);
-            foreach (var num in new MD5CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(keyInput)))
-                sb.Append(num.ToString("x2"));
-            return sb.ToString();
-        }
     }
 }

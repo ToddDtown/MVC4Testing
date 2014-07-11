@@ -149,6 +149,7 @@
     <Compile Include="Services\IBazaarVoiceService.cs" />
     <Compile Include="UnityBootstrapper.cs" />
     <Compile Include="ViewEngine\BuildManagerWrapper.cs" />
+    <Compile Include="ViewEngine\MobileCapableRazorViewEngine.cs" />
     <Compile Include="ViewEngine\MyCompanyViewEngine.cs" />
     <Compile Include="ViewEngine\ThemeableBuildManagerViewEngine.cs" />
     <Compile Include="ViewEngine\ThemeableVirtualPathProviderViewEngine.cs" />

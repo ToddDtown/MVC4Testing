@@ -212,7 +212,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\MyCompany\HomePage\HomePage.cshtml" />
-    <Content Include="Views\MyCompany\HomePage\MyPartial.cshtml" />
     <Content Include="Views\MyCompany\Product\Product.cshtml" />
     <Content Include="Views\MyCompany\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -234,6 +233,10 @@
     <Content Include="Views\Shared\EditorTemplates\_GridGenerationList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_GridDateTimePicker.cshtml" />
     <Content Include="Views\MyCompany\JqueryGuts\JqueryGuts.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\MyCompany\HomePage\HomePage.Mobile.cshtml" />
+    <Content Include="Views\HomePage\HomePage.cshtml" />
+    <Content Include="Views\HomePage\HomePage.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

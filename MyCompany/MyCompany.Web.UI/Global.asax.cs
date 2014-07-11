@@ -29,7 +29,6 @@ namespace MyCompany.Web.UI
         {
             var ctx = HttpContext.Current;
             var error = ctx.Server.GetLastError();
-            var x = "";
         }
     }
 }
