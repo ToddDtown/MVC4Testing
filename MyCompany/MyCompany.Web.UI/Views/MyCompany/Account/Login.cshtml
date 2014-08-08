@@ -1,0 +1,13 @@
+﻿<div id="container">
+    <p>Please login</p>
+    @using (Html.BeginForm("LoginToAccount", "Account", null, FormMethod.Post, new { id = "form-login" }))
+    {
+        <fieldset>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" /><br/>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" />
+            <input type="submit" value="Login" />
+        </fieldset>
+    }
+</div>

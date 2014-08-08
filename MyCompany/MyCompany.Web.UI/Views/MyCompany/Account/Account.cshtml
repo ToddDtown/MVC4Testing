@@ -1,0 +1,24 @@
+﻿@model MyCompany.Web.Mvc.Models.AccountModel
+
+@{
+    ViewBag.Title = "MyAccount";
+}
+
+@section Head 
+{
+    
+}
+
+<h1>My Account</h1>
+<h3>Welcom @User.Identity.Name</h3>
+
+<ul>
+    <li>First Name: @Model.FirstName</li>
+    <li>Last Name: @Model.LastName</li>
+    <li>Username: @Model.Username</li>
+</ul>
+
+@section StartupScripts
+{
+
+}

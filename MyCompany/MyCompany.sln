@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.UnitTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.WebServices", "MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj", "{DFEACD1D-81C6-4E4C-A335-E72896F69962}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "MvcApplication1\MvcApplication1.csproj", "{D03C5C5C-0053-402F-B69B-718199A693EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug (MVC Only)|Any CPU = Debug (MVC Only)|Any CPU
@@ -61,6 +63,14 @@ Global
 		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (MVC Only)|Any CPU.Build.0 = Debug|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (UI Only)|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (UI Only)|Any CPU.Build.0 = Debug|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03C5C5C-0053-402F-B69B-718199A693EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

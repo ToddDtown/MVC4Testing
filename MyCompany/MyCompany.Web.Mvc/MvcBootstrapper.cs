@@ -11,12 +11,12 @@ namespace MyCompany.Web.Mvc
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterModelBinders(ModelBinders.Binders);
 
-            //ViewEngines.Engines.Clear();
-            //var themeableRazorViewEngine = new MyCompanyViewEngine
-            //            {
-            //                CurrentTheme = @base => "MyCompany"
-            //            };
-            //ViewEngines.Engines.Add(themeableRazorViewEngine);
+            ViewEngines.Engines.Clear();
+            var themeableRazorViewEngine = new MyCompanyViewEngine
+                        {
+                            CurrentTheme = @base => "MyCompany"
+                        };
+            ViewEngines.Engines.Add(themeableRazorViewEngine);
 
             ViewEngines.Engines.Insert(0, new MobileCapableRazorViewEngine());
 
