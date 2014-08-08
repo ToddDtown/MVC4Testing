@@ -235,6 +235,7 @@
     <Content Include="Resources\scripts\modernizer\modernizr-2.5.3.js" />
     <None Include="Resources\scripts\jquery\_references.js" />
     <Content Include="Resources\scripts\kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Views\TEST1.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
