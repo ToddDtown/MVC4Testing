@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.DataAccess", "MyCompany.DataAccess\MyCompany.DataAccess.csproj", "{E91B017B-DB55-4043-A3FD-F9A341260426}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.UI", "MyCompany.Web.UI\MyCompany.Web.UI.csproj", "{22E1FCF9-C4A7-4BF0-8C9F-E3EA74301F64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.UnitTests", "MyCompany.Web.UnitTests\MyCompany.Web.UnitTests.csproj", "{25AA96BB-0304-4B72-BAE7-02C6F1D65402}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCompany.Web.WebServices", "MyCompany.Web.WebServices\MyCompany.Web.WebServices.csproj", "{DFEACD1D-81C6-4E4C-A335-E72896F69962}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "MvcApplication1\MvcApplication1.csproj", "{D03C5C5C-0053-402F-B69B-718199A693EA}"
 EndProject
@@ -55,14 +53,6 @@ Global
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25AA96BB-0304-4B72-BAE7-02C6F1D65402}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (MVC Only)|Any CPU.Build.0 = Debug|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (UI Only)|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug (UI Only)|Any CPU.Build.0 = Debug|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFEACD1D-81C6-4E4C-A335-E72896F69962}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (MVC Only)|Any CPU.ActiveCfg = Debug|Any CPU
 		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (MVC Only)|Any CPU.Build.0 = Debug|Any CPU
 		{D03C5C5C-0053-402F-B69B-718199A693EA}.Debug (UI Only)|Any CPU.ActiveCfg = Debug|Any CPU

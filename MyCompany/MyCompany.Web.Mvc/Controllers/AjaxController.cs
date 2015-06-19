@@ -96,13 +96,6 @@ namespace MyCompany.Web.Mvc.Controllers
             return imageViewer;
         }
 
-        
-
-
-
-
-
-
         public ActionResult GetReviews(string productId)
         {
             const string cachePrefix = "Reviews_";
