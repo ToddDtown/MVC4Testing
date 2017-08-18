@@ -20,6 +20,8 @@ namespace MyCompany.Web.Mvc.Controllers
 
             var x = "";
 
+            var y = "";
+
             return View("HomePage", model);
         }
     }
