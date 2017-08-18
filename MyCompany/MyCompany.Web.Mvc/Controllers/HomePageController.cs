@@ -18,6 +18,8 @@ namespace MyCompany.Web.Mvc.Controllers
             var modelFactory = new ModelFactory();
             var model = modelFactory.CreateHomeModel();
 
+            var x = "";
+
             return View("HomePage", model);
         }
     }
