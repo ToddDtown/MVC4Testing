@@ -24,6 +24,8 @@ namespace MyCompany.Web.Mvc.Controllers
 
             var z = "";
 
+            var changeAfterPR = "";
+
             return View("HomePage", model);
         }
     }
