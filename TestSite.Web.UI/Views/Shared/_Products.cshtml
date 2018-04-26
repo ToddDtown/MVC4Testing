@@ -1,0 +1,12 @@
+﻿@model TestSite.Web.UI.Models.ProductGrid
+
+<ul>
+    @foreach (var product in Model.Products)
+    {
+        <li>
+            <h2>@product.Name</h2>
+            <p style="font-style: italic">@product.Description</p>
+            <strong>@product.Price</strong>
+        </li>
+    }
+</ul>
