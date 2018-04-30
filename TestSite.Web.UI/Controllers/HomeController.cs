@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Web;
 using System.Web.Mvc;
+using MongoDB.Driver;
 using TestSite.Web.UI.Models;
 
 namespace TestSite.Web.UI.Controllers
@@ -11,7 +13,8 @@ namespace TestSite.Web.UI.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new HomeModel();
+            return View("Index", model);
         }
 
         public ActionResult About()
@@ -59,6 +62,27 @@ namespace TestSite.Web.UI.Controllers
             };
 
             return View("_Products", productGrid);
+        }
+
+        [HttpPost]
+        public ActionResult GetData(string searchTerm)
+        {
+            var model = new HomeModel();
+
+            var mongoClient = ConnectToMongo();
+
+            return View("Index", model);
+        }
+
+        public MongoClient ConnectToMongo()
+        {
+            const string connectionString = @"mongodb://testcosmodb2525:IVdaZpVuik2vGEQkew4CNUS7UKiaSNlbHpuXwSSuyFthxvOANpuAvJBs2RD40b0FW7bIQVGcH3Xiymjtx0Ldmw==@testcosmodb2525.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+            var settings = MongoClientSettings.FromUrl(
+                new MongoUrl(connectionString)
+            );
+
+            settings.SslSettings = new SslSettings { EnabledSslProtocols = SslProtocols.Tls12 };
+            return new MongoClient(settings);
         }
     }
 }

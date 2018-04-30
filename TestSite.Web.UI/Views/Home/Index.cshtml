@@ -1,6 +1,5 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@{ ViewBag.Title = "Home Page"; }
+@model TestSite.Web.UI.Models.HomeModel
 
 <div class="jumbotron">
     <h1>Coolest Site Ever</h1>
@@ -21,5 +20,11 @@
         <p>
             @{ Html.RenderAction("GetProducts", "Home"); }
         </p>
+    </div>
+    <div class="col-md-4">
+        @using (Html.BeginForm("GetData", "Home", FormMethod.Post))
+        {
+            @Html.TextBoxFor(x => x.SearchTerm, new { style = "width: 200px" })<input type="submit" value="Search" />
+        }
     </div>
 </div>
